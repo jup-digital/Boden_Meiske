@@ -117,3 +117,55 @@ section [style*="box-shadow:0 12px 24px"]{
   .site-footer__logo{width:230px}
   .site-footer:after{width:250px;height:250px;right:-55px;bottom:-55px}
 }
+
+/* Hero redesign — desktop and mobile */
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.hero-section{height:calc(100svh - 0px);min-height:720px;position:relative;overflow:hidden;background:#26292b;color:#fff;isolation:isolate}
+.hero-section .hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 82%!important;display:block;z-index:-3;animation:heroZoom 20s ease-out both}
+.hero-shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(27,29,30,.90) 0%,rgba(31,33,34,.76) 36%,rgba(31,33,34,.26) 68%,rgba(31,33,34,.18) 100%),linear-gradient(0deg,rgba(22,23,24,.45),transparent 48%)}
+.hero-grain{position:absolute;inset:0;z-index:-1;opacity:.06;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.52'/%3E%3C/svg%3E")}
+.hero-layout{height:100%;max-width:1440px;margin:0 auto;padding:clamp(120px,14vh,180px) 56px 110px;display:flex;align-items:center}
+.hero-content{max-width:790px;animation:heroRise 1s .08s var(--motion-ease) both}
+.hero-kicker{display:flex;align-items:center;gap:13px;margin-bottom:24px;font-size:11px;font-weight:750;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.hero-kicker span{display:block;width:52px;height:2px;background:#d86647;transform-origin:left;animation:kickerLine 1s .35s var(--motion-ease) both}
+@keyframes kickerLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.hero-title{margin:0;color:#fff;font-size:clamp(58px,7.7vw,118px);font-weight:720;line-height:.87;letter-spacing:-.055em;text-transform:uppercase;max-width:9.8ch;text-wrap:balance}
+.hero-title>span{display:block}.hero-title__line{color:#fff}.hero-title .type-cursor{width:.055em;height:.78em;margin-left:.06em;vertical-align:-.01em;background:#d86647}
+.hero-lead{max-width:620px;margin:34px 0 0;font-size:clamp(17px,1.45vw,21px);line-height:1.65;font-weight:450;color:rgba(255,255,255,.82)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.hero-button{min-height:54px;padding:0 25px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:16px;text-decoration:none!important;font-size:13px;font-weight:750;letter-spacing:.035em;transition:transform .28s var(--motion-ease),background .28s ease,color .28s ease,border-color .28s ease!important}
+.hero-button--primary{background:#ab4d34;color:#fff;border:1px solid #ab4d34}.hero-button--primary:hover{background:#c85a3d;color:#fff;transform:translateY(-3px)!important}.hero-button--primary span{font-size:18px;transition:transform .25s ease}.hero-button--primary:hover span{transform:translateX(4px)}
+.hero-button--ghost{color:#fff;border:1px solid rgba(255,255,255,.42);background:rgba(255,255,255,.06);backdrop-filter:blur(8px)}.hero-button--ghost:hover{border-color:#fff;background:rgba(255,255,255,.14);color:#fff;transform:translateY(-3px)!important}
+.hero-proof{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:40px;color:rgba(255,255,255,.54);font-size:11px;letter-spacing:.11em;text-transform:uppercase}.hero-proof i{width:3px;height:3px;border-radius:50%;background:#d86647}
+.hero-scroll{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:9px;color:rgba(255,255,255,.68);text-decoration:none;font-size:9px;letter-spacing:.2em;text-transform:uppercase;z-index:3}.hero-scroll:hover{color:#fff;transform:translateX(-50%)!important}.hero-scroll i{display:block;width:1px;height:42px;background:linear-gradient(#fff,transparent);animation:scrollLine 1.7s ease-in-out infinite;transform-origin:top}@keyframes scrollLine{0%,100%{transform:scaleY(.4);opacity:.35}50%{transform:scaleY(1);opacity:1}}
+.hero-meta{position:absolute;bottom:28px;color:rgba(255,255,255,.5);font-size:10px;font-weight:650;letter-spacing:.17em;text-transform:uppercase}.hero-meta--left{left:40px}.hero-meta--right{right:40px}
+
+/* Back-to-top remains accessible on every viewport */
+.back-to-top{display:grid!important;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));width:52px;height:52px;border:0;outline:0}
+.back-to-top:focus-visible{outline:3px solid rgba(216,102,71,.4);outline-offset:4px}
+
+@media(max-width:900px){
+  .hero-section{min-height:760px;height:100svh}
+  .hero-section .hero-media{object-position:62% 88%!important}
+  .hero-shade{background:linear-gradient(90deg,rgba(27,29,30,.91) 0%,rgba(27,29,30,.70) 64%,rgba(27,29,30,.28) 100%),linear-gradient(0deg,rgba(22,23,24,.5),transparent 55%)}
+  .hero-layout{padding:128px 30px 100px}
+  .hero-content{max-width:700px}
+  .hero-title{font-size:clamp(54px,11vw,90px)}
+  .hero-meta{display:none}
+}
+@media(max-width:700px){
+  .hero-section{height:100svh;min-height:700px;max-height:900px}
+  .hero-section .hero-media{object-position:68% 94%!important;transform:scale(1.04)}
+  .hero-shade{background:linear-gradient(180deg,rgba(28,29,30,.72) 0%,rgba(28,29,30,.57) 42%,rgba(28,29,30,.78) 100%)}
+  .hero-layout{padding:112px 22px 90px;align-items:flex-end}
+  .hero-content{width:100%;padding-bottom:44px}
+  .hero-kicker{margin-bottom:17px;font-size:9px;letter-spacing:.17em}.hero-kicker span{width:34px}
+  .hero-title{font-size:clamp(49px,15vw,72px);line-height:.9;letter-spacing:-.05em;max-width:9ch}
+  .hero-lead{font-size:16px;line-height:1.55;margin-top:24px;max-width:34ch}
+  .hero-actions{margin-top:28px;display:grid;grid-template-columns:1fr;gap:10px}
+  .hero-button{width:100%;min-height:52px;padding:0 18px}
+  .hero-proof{display:none}
+  .hero-scroll{bottom:12px}.hero-scroll span{display:none}.hero-scroll i{height:28px}
+  .back-to-top{width:48px;height:48px;right:14px;bottom:14px;font-size:21px;box-shadow:0 9px 24px rgba(0,0,0,.3)}
+}
+@media(max-width:390px){.hero-layout{padding-left:18px;padding-right:18px}.hero-title{font-size:46px}.hero-lead{font-size:15px}}
