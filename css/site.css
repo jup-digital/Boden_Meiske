@@ -345,3 +345,143 @@ section .line-draw x-import{max-width:100%}
 @media (max-width: 640px) {
   .materials-grid { grid-template-columns: 1fr; gap: 22px; }
 }
+
+
+/* v12 — centered hero branding with large standalone symbol */
+.hero-layout{justify-content:center!important;text-align:center!important}
+.hero-content{display:flex;flex-direction:column;align-items:center;max-width:900px!important;margin-inline:auto}
+.hero-symbol{display:block;width:clamp(110px,11vw,168px);height:auto;margin:0 auto 26px;object-fit:contain;filter:drop-shadow(0 10px 24px rgba(0,0,0,.22));animation:heroLogo 1s .02s var(--motion-ease) both}
+.hero-kicker{justify-content:center}
+.hero-title{margin-inline:auto;max-width:10.5ch!important;text-align:center}
+.hero-lead{margin-left:auto!important;margin-right:auto!important;text-align:center}
+.hero-actions{justify-content:center}
+.hero-proof{justify-content:center}
+@media(max-width:700px){
+  .hero-content{align-items:center!important;text-align:center!important;transform:translateY(-1vh)!important}
+  .hero-symbol{width:104px;margin-bottom:20px}
+  .hero-kicker{justify-content:center}
+  .hero-title{margin-inline:auto!important;text-align:center!important}
+  .hero-lead{text-align:center!important;margin-inline:auto!important}
+  .hero-actions{width:100%;justify-content:center}
+}
+
+
+/* v13 — updated header logo and hero symbol beside headline */
+.site-header{min-height:96px;padding-top:14px;padding-bottom:14px}
+.site-header__brand img{width:clamp(300px,23vw,430px);max-height:68px}
+.hero-heading-row{display:flex;align-items:center;justify-content:center;gap:clamp(28px,4vw,62px);width:100%}
+.hero-heading-row .hero-title{margin:0!important;flex:0 1 auto}
+.hero-heading-row .hero-symbol{display:block;width:clamp(170px,15vw,250px);height:auto;margin:0;flex:0 0 auto;object-fit:contain;filter:drop-shadow(0 10px 24px rgba(0,0,0,.22));animation:heroLogo 1s .02s var(--motion-ease) both}
+@media(max-width:1050px){
+  .site-header__brand img{width:clamp(260px,34vw,360px);max-height:62px}
+}
+@media(max-width:700px){
+  .site-header{min-height:82px;padding:10px 16px}
+  .site-header__brand img{width:220px;max-height:56px}
+  .hero-heading-row{gap:18px;align-items:center}
+  .hero-heading-row .hero-symbol{width:clamp(96px,23vw,132px);margin:0}
+  .hero-heading-row .hero-title{font-size:clamp(42px,12vw,62px)!important;max-width:8.8ch!important}
+}
+@media(max-width:430px){
+  .site-header__brand img{width:190px;max-height:49px}
+  .hero-heading-row{gap:12px}
+  .hero-heading-row .hero-symbol{width:88px}
+  .hero-heading-row .hero-title{font-size:40px!important}
+}
+
+
+/* v14 — final requested refinements */
+.site-header__brand img{
+  width:clamp(330px,25vw,470px)!important;
+  max-height:72px!important;
+}
+
+/* The supplied symbol sits beside the unchanged hero headline/background. */
+.hero-heading-row{
+  max-width:1040px;
+}
+.hero-heading-row .hero-symbol{
+  width:clamp(190px,17vw,285px)!important;
+  opacity:.96;
+  transform:translate3d(0,var(--hero-symbol-y,0),0) rotate(var(--hero-symbol-r,0deg));
+  will-change:transform;
+}
+
+/* Reference images use the same generous radius as the rest of the interface. */
+#referenzen figure.image-zoom{
+  border-radius:22px!important;
+}
+#referenzen figure.image-zoom > div{
+  border-radius:16px!important;
+}
+#referenzen figure.image-zoom img{
+  border-radius:14px;
+}
+
+/* Quiet oversized brand symbols add depth to otherwise empty light sections. */
+.brand-ambient{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+}
+.brand-ambient > *{
+  position:relative;
+  z-index:1;
+}
+.brand-ambient::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  width:clamp(360px,48vw,760px);
+  aspect-ratio:1;
+  background:url('../assets/logos/hero-symbol-white-final.png') center/contain no-repeat;
+  filter:invert(34%) sepia(24%) saturate(2050%) hue-rotate(329deg) brightness(82%);
+  opacity:.035;
+  pointer-events:none;
+  transform:translate3d(0,var(--ambient-y,0),0) rotate(-9deg);
+  will-change:transform;
+}
+.brand-ambient--left::before{left:-16vw;top:8%}
+.brand-ambient--right::before{right:-17vw;bottom:-5%;transform:translate3d(0,var(--ambient-y,0),0) rotate(10deg)}
+
+/* More editorial motion: masked headings, gentle card drift and image parallax. */
+.motion-reveal{
+  clip-path:inset(0 0 22% 0 round 8px);
+  transition:opacity .9s var(--motion-ease),transform .95s var(--motion-ease),filter .9s var(--motion-ease),clip-path 1.05s var(--motion-ease);
+}
+.motion-reveal.is-visible{clip-path:inset(0 0 0 0 round 0)}
+.reveal-tile{
+  transform:translate3d(0,42px,0) scale(.97);
+  transition:opacity .8s var(--motion-ease),transform .9s var(--motion-ease),box-shadow .45s ease;
+}
+.reveal-tile.is-visible{transform:translate3d(0,0,0) scale(1)}
+.image-zoom img{transform:scale(1.045) translate3d(0,var(--image-parallax,0),0)}
+.image-zoom:hover img{transform:scale(1.085) translate3d(0,var(--image-parallax,0),0)}
+
+/* Native image upload control for project photos. */
+.contact-upload{display:grid;gap:9px;cursor:pointer}
+.contact-upload__label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(59,63,66,.72)}
+.contact-upload__box{min-height:82px;border:1px dashed rgba(171,77,52,.48);border-radius:16px;background:rgba(255,255,255,.74);display:flex;align-items:center;gap:15px;padding:15px 17px;transition:border-color .25s ease,background .25s ease,transform .25s ease}
+.contact-upload:hover .contact-upload__box{border-color:#ab4d34;background:#fff;transform:translateY(-2px)}
+.contact-upload__icon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#ab4d34;color:#fff;font-size:24px;line-height:1;flex:0 0 auto}
+.contact-upload__box strong{display:block;font-size:14px;color:#3b3f42}
+.contact-upload__box small{display:block;margin-top:4px;font-size:11px;line-height:1.45;color:rgba(59,63,66,.56)}
+.contact-upload__input{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.contact-upload__files{font-size:11px;color:rgba(59,63,66,.55)}
+.contact-upload:focus-within .contact-upload__box{outline:3px solid rgba(171,77,52,.18);outline-offset:2px}
+
+@media(max-width:1050px){
+  .site-header__brand img{width:clamp(270px,36vw,380px)!important;max-height:64px!important}
+}
+@media(max-width:700px){
+  .site-header__brand img{width:220px!important;max-height:56px!important}
+  .hero-heading-row .hero-symbol{width:clamp(102px,24vw,138px)!important}
+  .brand-ambient::before{width:430px;opacity:.028}
+}
+@media(max-width:430px){
+  .site-header__brand img{width:188px!important;max-height:48px!important}
+  .hero-heading-row .hero-symbol{width:90px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-heading-row .hero-symbol,.brand-ambient::before,.image-zoom img{transform:none!important}
+}

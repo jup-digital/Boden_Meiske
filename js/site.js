@@ -45,4 +45,58 @@
     window.addEventListener('scroll', update, { passive: true });
     update();
   }
+
+
+  /* Selected image names in the contact form. */
+  var upload = document.querySelector('.contact-upload__input');
+  var uploadStatus = document.querySelector('.contact-upload__files');
+  if (upload && uploadStatus) {
+    upload.addEventListener('change', function () {
+      var files = Array.prototype.slice.call(upload.files || []);
+      if (!files.length) {
+        uploadStatus.textContent = 'Noch keine Bilder ausgewählt';
+        return;
+      }
+      uploadStatus.textContent = files.length === 1
+        ? files[0].name
+        : files.length + ' Bilder ausgewählt';
+    });
+  }
+
+  /* Lightweight Framer-inspired parallax, driven by one animation frame. */
+  var ambientSections = Array.prototype.slice.call(document.querySelectorAll('.brand-ambient'));
+  var heroSymbol = document.querySelector('.hero-heading-row .hero-symbol');
+  var zoomImages = Array.prototype.slice.call(document.querySelectorAll('.image-zoom'));
+  var ticking = false;
+  function updateMotion() {
+    var vh = window.innerHeight || 1;
+    ambientSections.forEach(function (section) {
+      var rect = section.getBoundingClientRect();
+      var progress = (vh - rect.top) / (vh + rect.height);
+      var shift = Math.max(-55, Math.min(55, (progress - 0.5) * 105));
+      section.style.setProperty('--ambient-y', shift.toFixed(1) + 'px');
+    });
+    if (heroSymbol) {
+      var heroRect = heroSymbol.getBoundingClientRect();
+      var heroShift = Math.max(-18, Math.min(28, (heroRect.top / vh) * 28));
+      heroSymbol.style.setProperty('--hero-symbol-y', heroShift.toFixed(1) + 'px');
+      heroSymbol.style.setProperty('--hero-symbol-r', (heroShift * -0.035).toFixed(2) + 'deg');
+    }
+    zoomImages.forEach(function (frame) {
+      var rect = frame.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > vh) return;
+      var imageShift = ((rect.top + rect.height / 2) - vh / 2) / vh * -18;
+      frame.style.setProperty('--image-parallax', imageShift.toFixed(1) + 'px');
+    });
+    ticking = false;
+  }
+  function requestMotion() {
+    if (ticking || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    ticking = true;
+    window.requestAnimationFrame(updateMotion);
+  }
+  window.addEventListener('scroll', requestMotion, { passive: true });
+  window.addEventListener('resize', requestMotion, { passive: true });
+  requestMotion();
+
 })();
