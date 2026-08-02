@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boden Meiske | Bodenleger im Bergischen Land</title>
+<meta name="description" content="Boden Meiske: Bodenverlegung, Untergrundvorbereitung und Sanierung im Bergischen Land – persönlich, präzise und seit 1998.">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -52,11 +54,14 @@
 </div>
 <p style="max-width:380px;font-size:18px;line-height:1.7;opacity:0.75;margin:0">Ich berate unabhängig vom Material, messe sorgfältig auf und verlege so, dass Sie sich viele Jahre keine Gedanken mehr um Ihren Boden machen müssen.</p>
 </div>
-<div class="services-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div class="services-grid">
 <sc-for list="{{ services }}" as="s" hint-placeholder-count="2">
-<div class="reveal-tile">
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.FeatureCard" hint-size="100%,320px" number="{{ s.nr }}" title="{{ s.title }}" description="{{ s.desc }}" points="{{ s.points }}"></x-import>
-</div>
+<article class="service-card reveal-tile">
+  <div class="service-card__number">{{ s.nr }}</div>
+  <h3>{{ s.title }}</h3>
+  <p>{{ s.desc }}</p>
+  <ul><sc-for list="{{ s.points }}" as="point"><li>{{ point }}</li></sc-for></ul>
+</article>
 </sc-for>
 </div>
 </div>
@@ -69,25 +74,28 @@
 <div class="cta-copy">
 <div>
 <div style="font-weight:800;font-size:22px;letter-spacing:-0.01em">Kostenfreies Aufmaß</div>
-<div style="font-size:16px;opacity:0.65;margin-top:6px;line-height:1.5">Anrufen, Termin finden, Festpreis erhalten.</div>
+<div style="font-size:16px;opacity:0.65;margin-top:6px;line-height:1.5">Anrufen, Termin abstimmen und ein transparentes Angebot erhalten.</div>
 </div>
 </div>
 <x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Button" hint-size="200px,52px" variant="primary" size="lg" on-click="{{ goKontakt }}">Jetzt anfragen</x-import>
 </div></div>
 </section>
 
-<section aria-label="Material und Raumwirkung"><div class="editorial-band"><div class="editorial-grid"><figure class="editorial-main motion-reveal"><img loading="lazy" src="./assets/photos/stock/room-light.webp" alt="Heller Wohnraum mit warmem Holzboden"><figcaption class="editorial-caption"><div class="editorial-kicker">Material trifft Raum</div><div class="editorial-title">Ein guter Boden trägt den ganzen Raum.</div></figcaption></figure><figure class="editorial-side motion-reveal" data-delay="2"><img loading="lazy" src="./assets/photos/stock/detail-wood.webp" alt="Detailaufnahme einer natürlichen Holzmaserung"><figcaption class="editorial-caption"><div class="editorial-kicker">Natürliches Material</div><div class="editorial-title" style="font-size:clamp(24px,2.5vw,36px)">Oberflächen, die man nicht nur sieht.</div></figcaption></figure></div></div></section>
+<section aria-label="Material und Raumwirkung"><div class="editorial-band"><div class="editorial-grid"><figure class="editorial-main motion-reveal"><img loading="lazy" src="./assets/photos/stock/room-light.webp" alt="Heller Wohnraum mit warmem Holzboden"><figcaption class="editorial-caption"><div class="editorial-kicker">Material trifft Raum</div><div class="editorial-title">Ein guter Boden trägt den ganzen Raum.</div></figcaption></figure><figure class="editorial-side motion-reveal" data-delay="2"><img loading="lazy" src="./assets/photos/stock/detail-wood.webp" alt="Detailaufnahme einer natürlichen Holzmaserung"><figcaption class="editorial-caption"><div class="editorial-kicker">Natürliches Material</div><div class="editorial-title editorial-title--small">Oberflächen, die man nicht nur sieht.</div></figcaption></figure></div></div></section>
 <section id="materialien" style="border-top:1px solid rgba(59,63,66,0.08);padding:100px 0 120px">
 <div style="max-width:1440px;margin:0 auto;padding:0 40px">
 <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px">
 <h2 style="font-size:clamp(28px,3vw,40px);font-weight:600;letter-spacing:-0.02em;margin:0">Materialübersicht</h2>
 <span style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.5">Offen beraten • Ehrlich bewertet</span>
 </div>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+<div class="materials-grid">
 <sc-for list="{{ materials }}" as="m" hint-placeholder-count="6">
-<div class="reveal-tile">
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.MaterialTile" hint-size="100%,180px" category="{{ m.category }}" name="{{ m.name }}" meta="{{ m.meta }}"></x-import>
-</div>
+<article class="material-card reveal-tile">
+  <div class="material-card__category">{{ m.category }}</div>
+  <h3>{{ m.name }}</h3>
+  <p>{{ m.meta }}</p>
+  <span class="material-card__arrow" aria-hidden="true">↗</span>
+</article>
 </sc-for>
 </div>
 </div>
@@ -132,27 +140,32 @@
 </div>
 </section>
 
-<section id="ablauf" style="background:var(--bg-inverse);color:var(--paper);padding:100px 0">
-<div style="max-width:1440px;margin:0 auto;padding:0 40px">
-<div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;margin-bottom:64px">
-<h2 style="font-size:clamp(28px,3.2vw,44px);font-weight:600;line-height:1.05;letter-spacing:-0.02em;margin:0">Ablauf.<br>Klar und ohne Umwege.</h2>
-<div style="font-size:14px;letter-spacing:0.12em;text-transform:uppercase;opacity:0.5;max-width:300px;line-height:1.6">Vom ersten Anruf bis zur Abnahme — 4 Schritte, ein fester Ansprechpartner.</div>
-</div>
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:stretch">
-<sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
-<div class="reveal-tile">
-<div style="background:#3B3F42;box-shadow:0 12px 24px -8px rgba(0,0,0,0.35);border-radius:8px;padding:32px 28px 36px;flex:1;display:flex;flex-direction:column">
-<div style="font-size:42px;font-weight:800;color:var(--bg-brand);line-height:1;margin-bottom:28px">{{ s.n }}</div>
-<h3 style="font-size:18px;font-weight:600;margin:0 0 12px">{{ s.t }}</h3>
-<p style="font-size:16px;line-height:1.7;opacity:0.6;margin:0">{{ s.d }}</p>
-</div>
-</div>
-</sc-for>
-</div>
-</div>
+<section id="ablauf" class="process-section">
+  <div class="process-wrap">
+    <div class="process-head motion-reveal">
+      <div>
+        <div class="section-kicker">Ablauf</div>
+        <h2>Ablauf.<br>Klar und ohne Umwege.</h2>
+      </div>
+      <p>Vom ersten Gespräch bis zur Abnahme: vier nachvollziehbare Schritte und ein persönlicher Ansprechpartner.</p>
+    </div>
+    <div class="process-layout">
+      <div class="process-cards">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+          <article class="process-card reveal-tile">
+            <div class="process-card__number">{{ s.n }}</div>
+            <div><h3>{{ s.t }}</h3><p>{{ s.d }}</p></div>
+          </article>
+        </sc-for>
+      </div>
+      <figure class="process-image motion-reveal">
+        <img loading="lazy" src="./assets/photos/stock/craft.webp" alt="Werkzeug auf präzise verlegtem Parkett">
+        <figcaption><span>Präzision im Detail</span><strong>Saubere Schnitte. Ruhige Flächen. Langlebige Ergebnisse.</strong></figcaption>
+      </figure>
+    </div>
+  </div>
 </section>
 
-<section aria-label="Präzision im Detail" style="padding:0 0 110px"><div style="max-width:1440px;margin:0 auto;padding:0 40px"><div class="motion-reveal image-zoom" style="height:min(62vw,680px);min-height:420px;position:relative;overflow:hidden"><img loading="lazy" src="./assets/photos/stock/craft.webp" alt="Werkzeug auf präzise verlegtem Parkett" style="width:100%;height:100%;object-fit:cover;display:block"><div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,31,32,.68),transparent 65%)"></div><div style="position:absolute;left:clamp(24px,5vw,72px);bottom:clamp(28px,5vw,68px);color:white;max-width:560px"><div style="font-size:11px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;opacity:.78">Präzision im Detail</div><div style="font-size:clamp(30px,4vw,54px);line-height:1.02;font-weight:620;letter-spacing:-.03em;margin-top:14px">Saubere Schnitte. Ruhige Flächen. Langlebige Ergebnisse.</div></div></div></div></section>
 <section id="ueber-uns" style="padding:120px 0">
 <div style="max-width:1440px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px">
 <div class="motion-reveal line-draw">
@@ -217,7 +230,7 @@
 <x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Input" hint-size="100%,70px" label="Ort &amp; Größe" placeholder="z. B. Ort, 65 m² Wohnzimmer"></x-import>
 <x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Textarea" hint-size="100%,90px" label="Nachricht &amp; Materialwunsch" placeholder="z. B. Eiche Fischgrät geölt, 2 Fotos hänge ich an…" rows="{{ 3 }}"></x-import>
 <x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Button" hint-size="100%,52px" variant="primary" size="lg" style="width:100%">Anfrage senden</x-import>
-<div style="font-size:12px;line-height:1.5;opacity:0.5;text-align:center;margin-top:4px">Antwort innerhalb 24h • Festpreis nach Aufmaß • Keine Weitergabe Ihrer Daten</div>
+<div style="font-size:12px;line-height:1.5;opacity:0.5;text-align:center;margin-top:4px">Persönliche Rückmeldung • Transparentes Angebot • Keine Weitergabe Ihrer Daten</div>
 </div>
 </div>
 </div>
@@ -242,7 +255,7 @@
     <div class="site-footer__grid">
       <div class="site-footer__brand">
         <img class="site-footer__logo" src="./assets/logos/second-white.png" alt="Boden Meiske">
-        <p class="site-footer__claim">QUALITÄT, DIE BLEIBT. <span>SEIT 1998.</span></p>
+        <p class="site-footer__claim"><span>Seit 1998</span></p>
         <p class="site-footer__values">EHRLICH • PRÄZISE • LANGLEBIG</p>
       </div>
       <div>
@@ -267,8 +280,8 @@
       <div>
         <h3>Rechtliches</h3>
         <div class="site-footer__legal">
-          <a href="/impressum">Impressum</a>
-          <a href="/datenschutz">Datenschutz</a>
+          <a href="./impressum.html">Impressum</a>
+          <a href="./datenschutz.html">Datenschutz</a>
         </div>
       </div>
     </div>
@@ -338,29 +351,30 @@ class Component extends DCLogic {
         { category: 'Elastisch, robust', name: 'Kautschuk', meta: 'Extrem strapazierfähig • Rutschhemmend' },
       ],
       gallery: [
-        { src: './assets/photos/gallery/ref_0017.jpg', num: '01', cap: 'Holzoptikboden im Wohnbereich', meta: 'Verlegung • Sauberer Wandanschluss' },
-        { src: './assets/photos/gallery/ref_0023.jpg', num: '02', cap: 'Landhausdiele in heller Eiche', meta: 'Großformatige Dielen • Ruhiges Verlegebild' },
-        { src: './assets/photos/gallery/ref_0027.jpg', num: '03', cap: 'Untergrundvorbereitung für neuen Bodenbelag', meta: 'Spachtelarbeiten • Ebene Verlegefläche' },
-        { src: './assets/photos/gallery/ref_0031.jpg', num: '04', cap: 'Designbelag im Fischgrätmuster', meta: 'Präzise verlegt • Markantes Verlegebild' },
-        { src: './assets/photos/gallery/ref_0032.jpg', num: '05', cap: 'Designbelag in Holzoptik', meta: 'Fischgrätverlegung • Natürliche Eichenoptik' },
-        { src: './assets/photos/gallery/ref_0034.jpg', num: '06', cap: 'Sanierung und Vorbereitung des Untergrunds', meta: 'Altbelag entfernt • Untergrund ausgebessert' },
-        { src: './assets/photos/gallery/ref_0037.jpg', num: '07', cap: 'Designbelag in Eichenoptik', meta: 'Durchgängige Verlegung • Ruhiges Raumbild' },
-        { src: './assets/photos/gallery/ref_0040.jpg', num: '08', cap: 'Designbelag in Betonoptik', meta: 'Fugenarme Verlegung • Moderne Oberfläche' },
+        { src: './assets/photos/gallery/ref_0017.jpg', num: '01', cap: 'Designbelag in Betonoptik', meta: 'Flächenverlegung • Saubere Anschlüsse' },
+        { src: './assets/photos/gallery/ref_0023.jpg', num: '02', cap: 'Designbelag in warmer Holzoptik', meta: 'Wohnbereich • Durchgängiges Verlegebild' },
+        { src: './assets/photos/gallery/ref_0027.jpg', num: '03', cap: 'Untergrund instand gesetzt', meta: 'Schadhafte Stellen repariert • Verlegung vorbereitet' },
+        { src: './assets/photos/gallery/ref_0031.jpg', num: '04', cap: 'Designbelag im Fischgrätmuster', meta: 'Präzise Ausrichtung • Markantes Verlegebild' },
+        { src: './assets/photos/gallery/ref_0032.jpg', num: '05', cap: 'Fischgrätfläche in Holzoptik', meta: 'Ruhige Übergänge • Sorgfältig verlegt' },
+        { src: './assets/photos/gallery/ref_0034.jpg', num: '06', cap: 'Holzoptikboden im Flurbereich', meta: 'Lange Fläche • Saubere Randanschlüsse' },
+        { src: './assets/photos/gallery/ref_0037.jpg', num: '07', cap: 'Untergrund für die Verlegung vorbereitet', meta: 'Ebene Fläche • Großzügiger Wohnbereich' },
+        { src: './assets/photos/gallery/ref_0040.jpg', num: '08', cap: 'Landhausdiele in heller Holzoptik', meta: 'Offener Wohnraum • Ruhiges Dielenbild' },
       ],
       steps: [
         { n: '01', t: 'Anfrage & Fotos', d: 'Sie schicken Raumgröße, 2–3 Fotos und Wunschmaterial. Ich melde mich innerhalb 24h.' },
-        { n: '02', t: 'Aufmaß vor Ort', d: 'Ich komme vorbei, prüfe Untergrund, Feuchte, Höhen. Sie erhalten ein Festpreis-Angebot.' },
+        { n: '02', t: 'Aufmaß vor Ort', d: 'Ich komme vorbei, prüfe Untergrund, Feuchte, Höhen. Im Anschluss erhalten Sie ein nachvollziehbares Angebot für die besprochenen Arbeiten.' },
         { n: '03', t: 'Verlegung', d: 'Staubarm, termintreu, direkt mit mir als Ansprechpartner.' },
         { n: '04', t: 'Abnahme & Pflege', d: 'Gemeinsamer Rundgang, Pflegeset und Pflegeanleitung.' },
       ],
-      handschrift: ['Kein Sub, kein Aufmaß durch Dritte', 'Festpreis nach Aufmaß, keine Nachträge', 'Materialmuster bringe ich mit', 'Altbelag-Entsorgung inklusive', 'Pflegeset & Einweisung bei Übergabe'],
+      handschrift: ['Kein Sub, kein Aufmaß durch Dritte', 'Nachvollziehbares Angebot nach dem Aufmaß', 'Materialmuster bringe ich mit', 'Altbelag-Entsorgung inklusive', 'Pflegeset & Einweisung bei Übergabe'],
       faqItems: [
-        { question: 'Welche Bodenbeläge verlegen Sie?', answer: 'Ich verlege unter anderem Parkett, Designbeläge (Vinyl), PVC, Laminat, Linoleum, Kork und Kautschuk.' },
-        { question: 'Übernehmen Sie auch die Vorbereitung des Untergrunds?', answer: 'Ja. Ich übernehme Estrichreparaturen, Schleifarbeiten, Spachtelarbeiten, Grundierungen und alle notwendigen Vorarbeiten.' },
-        { question: 'Muss der alte Boden immer entfernt werden?', answer: 'Nicht unbedingt. Vor Beginn prüfe ich die Gegebenheiten und empfehle die sinnvollste Lösung.' },
-        { question: 'Beraten Sie auch bei der Auswahl des richtigen Bodenbelags?', answer: 'Selbstverständlich. Ich berate Sie ehrlich zu den Vor- und Nachteilen der verschiedenen Materialien.' },
-        { question: 'Arbeiten Sie nur im Bergischen Land?', answer: 'Mein Einsatzgebiet liegt überwiegend im Bergischen Land. Für größere Projekte sind Einsätze darüber hinaus nach Absprache möglich.' },
-        { question: 'Erstelle ich vorab ein Angebot?', answer: 'Ja. Nach einem persönlichen Termin vor Ort erhalten Sie ein transparentes und unverbindliches Angebot.' },
+        { question: 'Welche Bodenbeläge verlegen Sie?', answer: 'Ich verlege Parkett, Designbeläge und Vinyl, PVC, Laminat, Linoleum, Kork und Kautschuk. Welcher Belag sinnvoll ist, hängt vom Raum, der Beanspruchung, dem Untergrund, der gewünschten Optik und Ihrem Budget ab – deshalb steht vor der Auswahl immer eine ehrliche Beratung.' },
+        { question: 'Übernehmen Sie auch die Vorbereitung des Untergrunds?', answer: 'Ja. Ein Boden kann nur so gut sein wie der Untergrund darunter. Ich prüfe Estrich und vorhandene Flächen, repariere schadhafte Stellen und übernehme bei Bedarf Schleifen, Grundieren, Spachteln und das Herstellen einer ebenen, tragfähigen Verlegefläche.' },
+        { question: 'Muss der alte Boden immer entfernt werden?', answer: 'Nein, nicht automatisch. Manche Altbeläge können erhalten, aufgearbeitet oder nach fachlicher Prüfung als geeignete Grundlage genutzt werden. Vor Ort beurteile ich Zustand, Aufbau und Haftung und erkläre Ihnen, welche Lösung technisch sinnvoll und wirtschaftlich vernünftig ist.' },
+        { question: 'Beraten Sie auch bei der Auswahl des richtigen Bodenbelags?', answer: 'Ja. Ich erläutere Ihnen die Unterschiede bei Pflege, Haltbarkeit, Raumwirkung, Feuchtebeständigkeit und Fußbodenheizung. Dabei empfehle ich nicht das teuerste Material, sondern den Boden, der langfristig zu Ihrem Raum und Ihrem Alltag passt.' },
+        { question: 'Arbeiten Sie nur im Bergischen Land?', answer: 'Mein Schwerpunkt liegt in Wermelskirchen und im Bergischen Land. Je nach Umfang und Entfernung übernehme ich auch Projekte in den angrenzenden Regionen; am besten klären wir Einsatzort und Projektgröße kurz telefonisch.' },
+        { question: 'Wie läuft die Angebotserstellung ab?', answer: 'Nach einer ersten Abstimmung vereinbaren wir in der Regel einen Termin zum Aufmaß. Dabei prüfe ich Flächen, Übergänge und Untergrund und bespreche die gewünschten Leistungen. Anschließend erhalten Sie ein nachvollziehbares Angebot, in dem die vorgesehenen Arbeiten und Materialien aufgeführt sind.' },
+        { question: 'Wie lange dauert eine Bodenverlegung?', answer: 'Das hängt von Fläche, Belag und Untergrund ab. Eine reine Verlegung kann oft zügig erfolgen; Reparaturen, Spachtelarbeiten, Trocknungszeiten oder aufwendige Verlegemuster benötigen mehr Zeit. Nach dem Aufmaß kann ich den Ablauf realistisch einschätzen und mit Ihnen abstimmen.' },
       ],
     };
   }
