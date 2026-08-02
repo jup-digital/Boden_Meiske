@@ -1,403 +1,101 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Boden Meiske | Bodenleger im Bergischen Land</title>
-<meta name="description" content="Boden Meiske: Bodenverlegung, Untergrundvorbereitung und Sanierung im Bergischen Land – persönlich, präzise und seit 1998.">
-<script src="./support.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boden Meiske | Qualität, die bleibt.</title>
+<meta name="description" content="Boden Meiske – Untergrundvorbereitung, Reparatur und Bodenverlegung im Bergischen Land.">
+<link rel="stylesheet" href="./css/site.css">
 </head>
 <body>
-<x-dc>
-<!-- @template name="Marketing Homepage" description="Boden Meiske flooring business homepage: hero, leistungen, materialien, referenzen, ablauf, über mich, FAQ, kontakt" -->
-<helmet><script src="./ds-base.js"></script><link rel="stylesheet" href="./css/site.css"><link rel="stylesheet" href="./css/premium.css"></helmet>
-<div style="font-family:var(--font-sans);color:var(--text-primary);background:var(--bg-page)">
-<header class="site-header" id="site-header">
-  <a class="site-header__brand" href="#top" aria-label="Boden Meiske – nach oben">
-    <img src="./assets/logos/header-logo-user.png" alt="Boden Meiske – Qualität, die bleibt">
-  </a>
-  <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menü öffnen">
-    <span></span><span></span><span></span>
-  </button>
-  <nav class="site-header__nav" id="site-navigation" aria-label="Hauptnavigation">
-    <a href="#leistungen">Leistungen</a>
-    <a href="#materialien">Materialien</a>
-    <a href="#referenzen">Referenzen</a>
-    <a href="#ablauf">Ablauf</a>
-    <a href="#ueber-uns">Über mich</a>
-    <a class="site-header__cta" href="#kontakt">Angebot anfragen</a>
+<header class="topbar" id="topbar">
+  <a class="brand" href="#top" aria-label="Boden Meiske Startseite"><img src="./assets/logos/header-logo-user.png" alt="Boden Meiske"></a>
+  <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span></button>
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="#leistungen">Leistungen</a><a href="#referenzen">Referenzen</a><a href="#materialien">Materialien</a><a href="#faq">FAQ</a><a class="nav-cta" href="#kontakt">Anfrage senden</a>
   </nav>
 </header>
 
-<section id="top" class="hero-section" aria-labelledby="hero-title">
-  <img class="hero-media" src="./assets/photos/stock/hero.webp" alt="Hochwertiger Holzboden in einem ruhigen Innenraum">
-  <div class="hero-shade" aria-hidden="true"></div>
-  <div class="hero-grain" aria-hidden="true"></div>
-
-  <div class="hero-layout">
-    <div class="hero-content">
-      <div class="hero-kicker"><span></span> Bodenhandwerk seit 1998</div>
-      <div class="hero-heading-row">
-        <h1 id="hero-title" class="hero-title">
-          <span id="hero-type" data-text="QUALITÄT," aria-hidden="true"><span></span><span class="type-cursor"></span></span>
-          <span class="hero-title__line">DIE BLEIBT.</span>
-          <span class="sr-only">Qualität, die bleibt.</span>
-        </h1>
-        <img class="hero-symbol" src="./assets/logos/hero-symbol-user.png" alt="" aria-hidden="true">
-      </div>
-      <p class="hero-lead">Böden im Bergischen Land — sorgfältig vorbereitet, präzise verlegt und für viele Jahre gemacht.</p>
-      <div class="hero-actions">
-        <a class="hero-button hero-button--primary" href="#kontakt">Kostenfreies Aufmaß anfragen <span aria-hidden="true">→</span></a>
-        <a class="hero-button hero-button--ghost" href="#referenzen">Referenzen ansehen</a>
-      </div>
-    </div>
+<main id="top">
+<section class="hero">
+  <div class="hero-copy reveal">
+    <span class="eyebrow">Bodenmeisterqualität</span>
+    <h1>Qualität,<br>die bleibt.</h1>
+    <p>Von der kaputten Estrich-Ecke bis zum fertigen Boden: ehrlich beraten, sauber vorbereitet und präzise verlegt.</p>
+    <a class="button button-red" href="#kontakt">Anfrage senden <span>↗</span></a>
   </div>
-
-  <a class="hero-scroll" href="#leistungen" aria-label="Zu den Leistungen scrollen">
-    <span>Entdecken</span><i aria-hidden="true"></i>
-  </a>
-</section>
-
-<section id="leistungen" class="premium-section premium-services brand-ambient brand-ambient--left" style="padding:120px 0 80px">
-<div style="max-width:1440px;margin:0 auto;padding:0 40px">
-<div style="display:flex;gap:32px;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;margin-bottom:64px">
-<div class="motion-reveal line-draw">
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Eyebrow" hint-size="140px,28px">Leistungen</x-import>
-<h2 style="font-size:clamp(32px,4vw,52px);line-height:1.05;font-weight:600;letter-spacing:-0.02em;max-width:560px;margin:0">Böden, die zu Ihrem Leben passen.</h2>
-</div>
-<p style="max-width:380px;font-size:18px;line-height:1.7;opacity:0.75;margin:0">Ich berate unabhängig vom Material, messe sorgfältig auf und verlege so, dass Sie sich viele Jahre keine Gedanken mehr um Ihren Boden machen müssen.</p>
-</div>
-<div class="services-grid">
-<sc-for list="{{ services }}" as="s" hint-placeholder-count="2">
-<article class="service-card reveal-tile">
-  <div class="service-card__number">{{ s.nr }}</div>
-  <h3>{{ s.title }}</h3>
-  <p>{{ s.desc }}</p>
-  <ul><sc-for list="{{ s.points }}" as="point"><li>{{ point }}</li></sc-for></ul>
-</article>
-</sc-for>
-</div>
-</div>
-</section>
-
-<section style="padding:0 0 120px">
-<div style="max-width:1440px;margin:0 auto;padding:0 40px">
-
-<div class="reveal-tile cta-band" style="border-left:4px solid var(--bg-brand);background:#FAFAFA;box-shadow:0 12px 24px -8px rgba(59,63,66,0.18);display:flex;flex-wrap:wrap;align-items:center">
-<div class="cta-copy">
-<div>
-<div style="font-weight:800;font-size:22px;letter-spacing:-0.01em">Kostenfreies Aufmaß</div>
-<div style="font-size:16px;opacity:0.65;margin-top:6px;line-height:1.5">Anrufen, Termin abstimmen und ein transparentes Angebot erhalten.</div>
-</div>
-</div>
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Button" hint-size="200px,52px" variant="primary" size="lg" on-click="{{ goKontakt }}">Jetzt anfragen</x-import>
-</div></div>
-</section>
-
-<section class="premium-editorial" aria-label="Material und Raumwirkung"><div class="editorial-band"><div class="editorial-grid"><figure class="editorial-main motion-reveal"><img loading="lazy" src="./assets/photos/stock/room-light.webp" alt="Heller Wohnraum mit warmem Holzboden"><figcaption class="editorial-caption"><div class="editorial-kicker">Material trifft Raum</div><div class="editorial-title">Ein guter Boden trägt den ganzen Raum.</div></figcaption></figure><figure class="editorial-side motion-reveal" data-delay="2"><img loading="lazy" src="./assets/photos/stock/detail-wood.webp" alt="Detailaufnahme einer natürlichen Holzmaserung"><figcaption class="editorial-caption"><div class="editorial-kicker">Natürliches Material</div><div class="editorial-title editorial-title--small">Oberflächen, die man nicht nur sieht.</div></figcaption></figure></div></div></section>
-<div class="marquee-band" aria-hidden="true"><div>BODEN · MATERIAL · HANDWERK · PRÄZISION · BODEN · MATERIAL · HANDWERK · PRÄZISION ·</div></div>
-<section id="materialien" class="premium-section premium-materials brand-ambient brand-ambient--right" style="padding:100px 0 120px">
-<div style="max-width:1440px;margin:0 auto;padding:0 40px">
-<div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px">
-<h2 style="font-size:clamp(28px,3vw,40px);font-weight:600;letter-spacing:-0.02em;margin:0">Materialübersicht</h2>
-<span style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.5">Offen beraten • Ehrlich bewertet</span>
-</div>
-<div class="materials-grid">
-<sc-for list="{{ materials }}" as="m" hint-placeholder-count="6">
-<article class="material-card reveal-tile">
-  <div class="material-card__media"><img loading="lazy" src="{{ m.image }}" alt="{{ m.name }} Bodenbelag"></div>
-  <div class="material-card__body">
-    <div class="material-card__category">{{ m.category }}</div>
-    <h3>{{ m.name }}</h3>
-    <p>{{ m.meta }}</p>
-    <span class="material-card__arrow" aria-hidden="true">↗</span>
+  <div class="hero-object" aria-hidden="true">
+    <div class="hero-shadow"></div>
+    <img src="./assets/logos/hero-symbol-user.png" alt="">
   </div>
-</article>
-</sc-for>
-</div>
-</div>
+  <div class="hero-index">01 — Boden Meiske</div>
+  <a class="scroll-cue" href="#intro"><span>Scrollen</span><i></i></a>
 </section>
 
-<section class="quote-band"><div class="quote-inner motion-reveal"><div class="quote-mark">„</div><div class="quote-text">Ich arbeite nicht für den schnellen Abschluss, sondern für ein Ergebnis, das auch in vielen Jahren noch überzeugt.</div><div class="quote-meta">Lothar Meiske · Bodenleger seit 1998</div></div></section>
-<section id="referenzen" class="premium-section premium-references brand-ambient brand-ambient--left" style="padding:100px 0">
-<div style="max-width:1440px;margin:0 auto;padding:0 40px">
-<div class="motion-reveal line-draw" style="margin-bottom:40px">
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Eyebrow" hint-size="220px,28px">Referenzen • Echte Projekte</x-import>
-<div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between;align-items:flex-end">
-<h2 style="font-size:clamp(32px,4vw,52px);line-height:1;font-weight:600;letter-spacing:-0.02em;margin:0">Ausgesucht.<br>Aufbereitet.</h2>
-</div>
-</div>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-<sc-for list="{{ gallery }}" as="g" hint-placeholder-count="8">
-<div class="reveal-tile">
-<figure class="image-zoom" style="margin:0;background:#FAFAFA;box-shadow:0 12px 24px -8px rgba(59,63,66,0.18);border-radius:28px;overflow:hidden;padding:12px">
-<div style="aspect-ratio:4/3;overflow:hidden;position:relative;background:var(--bg-inverse)">
-<img src="{{ g.src }}" style="width:100%;height:100%;object-fit:cover;display:block">
-<div style="position:absolute;left:12px;top:12px;background:var(--paper);font-size:11px;font-weight:700;letter-spacing:0.12em;padding:6px 10px;text-transform:uppercase">{{ g.num }}</div>
-</div>
-<figcaption style="padding:16px 8px 6px">
-<div style="font-size:17px;font-weight:600;line-height:1.3">{{ g.cap }}</div>
-<div style="margin-top:6px;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;opacity:0.5">{{ g.meta }}</div>
-</figcaption>
-</figure>
-</div>
-</sc-for>
-</div>
-</div>
+<section class="intro section" id="intro">
+  <div class="image-panel parallax-media"><img src="./assets/photos/stock/detail-wood.webp" alt="Detail eines hochwertigen Holzbodens"></div>
+  <blockquote class="reveal"><span>„</span><p>Ein guter Boden beginnt nicht mit dem Belag. Er beginnt mit einem Untergrund, auf den man sich verlassen kann.</p><footer>Lothar Meiske</footer></blockquote>
 </section>
 
-<section class="premium-why" style="padding:100px 0">
-<div class="premium-why__grid" style="max-width:1440px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px">
-<div class="motion-reveal line-draw">
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Eyebrow" hint-size="140px,28px">Warum Boden Meiske?</x-import>
-<h2 style="font-size:clamp(28px,3vw,36px);font-weight:600;line-height:1.1;letter-spacing:-0.02em;margin:0">Lieber einmal richtig.</h2>
-</div>
-<div class="reveal-tile" style="background:#FAFAFA;box-shadow:0 12px 24px -8px rgba(59,63,66,0.18);border-radius:8px;padding:32px 28px"><h3 style="font-size:18px;font-weight:600;margin:0 0 12px">Aufmaß entscheidet</h3><p style="font-size:17px;line-height:1.7;opacity:0.65;margin:0">Ich messe selbst. Laser, Richtlatte, Feuchte. Was im Angebot steht, wird verlegt.</p></div>
-<div class="reveal-tile" style="background:#FAFAFA;box-shadow:0 12px 24px -8px rgba(59,63,66,0.18);border-radius:8px;padding:32px 28px"><h3 style="font-size:18px;font-weight:600;margin:0 0 12px">Sauberer Abschluss</h3><p style="font-size:17px;line-height:1.7;opacity:0.65;margin:0">Sockel auf Gehrung, Übergänge flächenbündig. Die letzten 2% machen den Unterschied.</p></div>
-</div>
-</section>
-
-<section id="ablauf" class="process-section">
-  <div class="process-wrap">
-    <div class="process-head motion-reveal">
-      <div>
-        <div class="section-kicker">Ablauf</div>
-        <h2>Ablauf.<br>Klar und ohne Umwege.</h2>
-      </div>
-      <p>Vom ersten Gespräch bis zur Abnahme: vier nachvollziehbare Schritte und ein persönlicher Ansprechpartner.</p>
-    </div>
-    <div class="process-layout process-layout--light">
-      <div class="process-cards">
-        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
-          <article class="process-card reveal-tile">
-            <div class="process-card__number">{{ s.n }}</div>
-            <div><h3>{{ s.t }}</h3><p>{{ s.d }}</p></div>
-          </article>
-        </sc-for>
-      </div>
-      <aside class="process-summary motion-reveal">
-        <span class="process-summary__eyebrow">Ein klarer Ablauf</span>
-        <h3>Persönlich begleitet – von der ersten Einschätzung bis zum fertigen Boden.</h3>
-        <p>Sie wissen jederzeit, was als Nächstes passiert. Ich prüfe die Gegebenheiten vor Ort, bespreche die passende Lösung und koordiniere die Ausführung zuverlässig.</p>
-        <a href="#kontakt">Projekt besprechen <span aria-hidden="true">→</span></a>
-      </aside>
-    </div>
+<section class="gallery-section section" id="referenzen">
+  <div class="section-head reveal"><div><span class="eyebrow">Referenzen</span><h2>Aus Handwerk<br>wird Raum.</h2></div><div class="gallery-controls"><button class="circle-btn" data-gallery-prev aria-label="Vorherige Bilder">←</button><button class="circle-btn circle-btn-red" data-gallery-next aria-label="Nächste Bilder">→</button></div></div>
+  <div class="gallery-track" data-gallery>
+    <figure><img src="./assets/photos/gallery/ref_0017.jpg" alt="Designbelag in Betonoptik"><figcaption><b>Designbelag</b><span>Betonoptik</span></figcaption></figure>
+    <figure><img src="./assets/photos/gallery/ref_0023.jpg" alt="Boden in warmer Holzoptik"><figcaption><b>Wohnbereich</b><span>Holzoptik</span></figcaption></figure>
+    <figure><img src="./assets/photos/gallery/ref_0031.jpg" alt="Fischgrätboden"><figcaption><b>Fischgrät</b><span>Präzise verlegt</span></figcaption></figure>
+    <figure><img src="./assets/photos/gallery/ref_0034.jpg" alt="Boden im Flurbereich"><figcaption><b>Flurbereich</b><span>Saubere Übergänge</span></figcaption></figure>
+    <figure><img src="./assets/photos/gallery/ref_0040.jpg" alt="Heller Dielenboden"><figcaption><b>Landhausdiele</b><span>Ruhiges Dielenbild</span></figcaption></figure>
+    <figure><img src="./assets/photos/gallery/ref_0032.jpg" alt="Fischgrätfläche"><figcaption><b>Holzoptik</b><span>Fischgrätfläche</span></figcaption></figure>
   </div>
 </section>
 
-<section id="ueber-uns" class="premium-about" style="padding:120px 0">
-<div style="max-width:1440px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px">
-<div class="motion-reveal line-draw">
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Eyebrow" hint-size="140px,28px">Über mich</x-import>
-<h2 style="font-size:clamp(32px,4vw,48px);font-weight:600;line-height:1.05;letter-spacing:-0.02em;margin:0 0 32px">Lothar Meiske.<br>Bodenleger<br>aus Überzeugung.</h2>
-<div style="font-size:18px;line-height:1.8;opacity:0.8;display:flex;flex-direction:column;gap:20px">
-<p style="margin:0">Seit 1998 bin ich als Bodenleger im Bergischen Land tätig. In dieser Zeit habe ich unzählige Böden vorbereitet, verlegt und saniert – vom privaten Wohnraum bis hin zu gewerblichen Objekten. Mein Anspruch: saubere Handwerksarbeit, die viele Jahre Bestand hat.</p>
-<p style="margin:0">Für mich beginnt ein guter Boden nicht mit dem Belag, sondern mit dem Untergrund. Deshalb lege ich großen Wert auf eine sorgfältige Vorbereitung des Estrichs, präzise Verarbeitung und hochwertige Materialien.</p>
-<p style="margin:0;font-weight:600;opacity:1">Ich berate ehrlich und empfehle nur Lösungen, hinter denen ich selbst stehe.</p>
-</div>
-<div style="margin-top:40px;border-top:1px solid rgba(59,63,66,0.1);padding-top:32px"></div>
-</div>
-<div>
-<div class="reveal-tile" style="background:#FAFAFA;box-shadow:0 12px 24px -8px rgba(59,63,66,0.18);border-radius:8px;padding:32px;align-self:start">
-<div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--bg-brand);margin-bottom:20px">Handschrift</div>
-<div style="display:flex;flex-direction:column;gap:16px">
-<sc-for list="{{ handschrift }}" as="h" hint-placeholder-count="5">
-<div style="display:flex;gap:12px;font-size:16px"><span style="color:var(--bg-brand);margin-top:1px">✓</span><span style="line-height:1.5">{{ h }}</span></div>
-</sc-for>
-</div>
-<div style="margin-top:40px;border-top:1px solid rgba(59,63,66,0.1);padding-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.StatBlock" hint-size="80px,60px" value="Seit 1998" label="Erfahrung"></x-import>
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.StatBlock" hint-size="80px,60px" value="1" label="Ansprechpartner"></x-import>
-</div>
-<div style="margin-top:24px;border-top:1px solid rgba(59,63,66,0.1);padding-top:20px">
-<div style="font-size:14px;font-weight:700">Lothar Meiske</div>
-<div style="font-size:14px;opacity:0.6;margin-top:2px">Inhaber &amp; Bodenleger</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+<section class="statement"><p class="reveal">Nicht einfach verlegt.<br><em>Richtig aufgebaut.</em></p></section>
 
-<section id="faq" class="premium-section premium-faq brand-ambient brand-ambient--right" style="padding:100px 0">
-<div style="max-width:1440px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px">
-<div class="motion-reveal line-draw">
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Eyebrow" hint-size="80px,28px">FAQ</x-import>
-<h2 style="font-size:32px;font-weight:600;line-height:1.1;letter-spacing:-0.02em;margin:0">Fragen, die vorher geklärt sein sollten.</h2>
-</div>
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Accordion" hint-size="100%,300px" items="{{ faqItems }}"></x-import>
-</div>
-</section>
-
-<div class="statement-band"><p class="motion-reveal">Ein Boden ist nicht nur Oberfläche.<br><span>Er ist die Grundlage des Raumes.</span></p></div>
-<section id="kontakt" class="premium-contact" style="border-top:1px solid rgba(59,63,66,0.08);padding:100px 0 0">
-<div style="max-width:1440px;margin:0 auto;padding:0 40px">
-<div class="reveal-tile" style="border:1px solid rgba(59,63,66,0.12);background:#FAFAFA;box-shadow:0 12px 24px -8px rgba(59,63,66,0.18);border-radius:8px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr">
-<div style="padding:48px 40px">
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Eyebrow" hint-size="100px,28px">Kontakt</x-import>
-<h2 style="font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.05;letter-spacing:-0.02em;margin:0 0 24px">Angebot anfordern.<br>In 2 Minuten.</h2>
-<p style="font-size:17px;line-height:1.7;opacity:0.65;max-width:380px;margin-bottom:36px">Am schnellsten: kurz anrufen. Oder Fotos per Mail / WhatsApp schicken.</p>
-<div style="display:flex;flex-direction:column;gap:20px">
-<div><div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.5;margin-bottom:6px">Telefon</div><a href="tel:+491777091220" style="font-size:18px;font-weight:700;color:inherit;text-decoration:none">0177 7091220</a></div>
-<div><div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.5;margin-bottom:6px">E-Mail</div><div style="font-size:15px;font-weight:600">info@boden-meiske.de</div></div>
-<div><div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.5;margin-bottom:6px">Einsatzgebiet</div><div style="font-size:16px;line-height:1.6;opacity:0.8">Wermelskirchen, Bergisches Land und angrenzende Regionen</div></div>
-</div>
-</div>
-<div style="padding:48px 40px;background:rgba(59,63,66,0.03);border-left:1px solid rgba(59,63,66,0.12)">
-<div style="font-size:16px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px">Was ich fürs Angebot brauche</div>
-<div style="display:flex;flex-direction:column;gap:16px">
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Input" hint-size="100%,70px" label="Name" placeholder="Ihr Name"></x-import>
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Input" hint-size="100%,70px" label="Telefon" placeholder="Für Rückfragen"></x-import>
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Input" hint-size="100%,70px" label="Ort &amp; Größe" placeholder="z. B. Ort, 65 m² Wohnzimmer"></x-import>
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Textarea" hint-size="100%,90px" label="Nachricht &amp; Materialwunsch" placeholder="z. B. Eiche Fischgrät geölt, 2 Fotos hänge ich an…" rows="{{ 3 }}"></x-import>
-<label class="contact-upload">
-  <span class="contact-upload__label">Bilder anhängen</span>
-  <span class="contact-upload__box">
-    <span class="contact-upload__icon" aria-hidden="true">＋</span>
-    <span><strong>Fotos auswählen</strong><small>JPG, PNG oder WEBP · mehrere Dateien möglich</small></span>
-  </span>
-  <input class="contact-upload__input" type="file" name="bilder" accept="image/jpeg,image/png,image/webp" multiple>
-  <span class="contact-upload__files" aria-live="polite">Noch keine Bilder ausgewählt</span>
-</label>
-<x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Button" hint-size="100%,52px" variant="primary" size="lg" style="width:100%">Anfrage senden</x-import>
-<div style="font-size:12px;line-height:1.5;opacity:0.5;text-align:center;margin-top:4px">Persönliche Rückmeldung • Transparentes Angebot • Keine Weitergabe Ihrer Daten</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<footer class="site-footer">
-  <div class="site-footer__inner">
-    <div class="site-footer__grid">
-      <div class="site-footer__brand">
-        <img class="site-footer__logo" src="./assets/logos/second-white.png" alt="Boden Meiske">
-        <p class="site-footer__claim"><span>Seit 1998</span></p>
-        <p class="site-footer__values">EHRLICH • PRÄZISE • LANGLEBIG</p>
-      </div>
-      <div>
-        <h3>Navigation</h3>
-        <nav aria-label="Navigation im Footer">
-          <a href="#leistungen">Leistungen</a>
-          <a href="#materialien">Materialien</a>
-          <a href="#referenzen">Referenzen</a>
-          <a href="#ablauf">Ablauf</a>
-          <a href="#ueber-uns">Über mich</a>
-          <a href="#kontakt">Kontakt</a>
-        </nav>
-      </div>
-      <div>
-        <h3>Kontakt</h3>
-        <div class="site-footer__contact">
-          <a href="tel:+491777091220">0177 7091220</a>
-          <a href="mailto:info@boden-meiske.de">info@boden-meiske.de</a>
-        </div>
-      </div>
-      <div>
-        <h3>Rechtliches</h3>
-        <div class="site-footer__legal">
-          <a href="./impressum.html">Impressum</a>
-          <a href="./datenschutz.html">Datenschutz</a>
-        </div>
-      </div>
-    </div>
-    <div class="site-footer__bottom">
-      <span>Bodenhandwerk im Bergischen Land</span>
-      <span>© 2026 Boden Meiske</span>
-    </div>
+<section class="services section" id="leistungen">
+  <div class="section-head reveal"><div><span class="eyebrow">Leistungen</span><h2>Alles, was unter<br>Ihren Füßen passiert.</h2></div><p>Persönlich ausgeführt – von der Prüfung des Untergrunds bis zum letzten sauberen Anschluss.</p></div>
+  <div class="service-lines">
+    <article class="reveal"><span>01</span><h3>Estrich reparieren</h3><p>Risse, Hohllagen und Ausbrüche werden geprüft und fachgerecht instand gesetzt, bevor unnötig alles entfernt wird.</p></article>
+    <article class="reveal"><span>02</span><h3>Untergrund vorbereiten</h3><p>Schleifen, grundieren, spachteln und Ebenheit herstellen – damit der neue Belag dauerhaft sicher liegt.</p></article>
+    <article class="reveal"><span>03</span><h3>Boden verlegen</h3><p>Parkett, Designbelag, Vinyl, Linoleum, Kork, Kautschuk, Laminat und PVC – sauber und passgenau.</p></article>
   </div>
+</section>
+
+<section class="materials" id="materialien">
+  <article class="material-row"><div class="material-media parallax-media"><img src="./assets/photos/materials/parkett.webp" alt="Parkett"></div><div class="material-copy reveal"><span class="eyebrow">01 — Natürlich</span><h2>Parkett</h2><p>Warm, wertig und langlebig. Parkett bringt Ruhe in den Raum und kann – passend zu Nutzung und Untergrund – vollflächig verklebt oder schwimmend verlegt werden.</p><a href="#kontakt">Projekt besprechen <span>→</span></a></div></article>
+  <article class="material-row material-row-reverse"><div class="material-media parallax-media"><img src="./assets/photos/materials/designbelag.webp" alt="Designbelag"></div><div class="material-copy reveal"><span class="eyebrow">02 — Vielseitig</span><h2>Designbelag & Vinyl</h2><p>Pflegeleicht, robust und in vielen Oberflächen erhältlich. Ideal für Wohnräume, Flure und stark beanspruchte Bereiche.</p><a href="#kontakt">Material anfragen <span>→</span></a></div></article>
+  <article class="material-row"><div class="material-media parallax-media"><img src="./assets/photos/materials/linoleum.webp" alt="Linoleum"></div><div class="material-copy reveal"><span class="eyebrow">03 — Bewährt</span><h2>Linoleum, Kork & Kautschuk</h2><p>Elastische und natürliche Lösungen mit besonderen Eigenschaften – von fußwarm und leise bis extrem belastbar und pflegeleicht.</p><a href="#kontakt">Passende Lösung finden <span>→</span></a></div></article>
+</section>
+
+<section class="process section">
+  <div class="section-head reveal"><div><span class="eyebrow">Ablauf</span><h2>Klar. Persönlich.<br>Ohne Umwege.</h2></div></div>
+  <div class="steps">
+    <article><b>01</b><h3>Anfrage & Fotos</h3><p>Sie senden Raumgröße, Wunsch und erste Bilder.</p></article><article><b>02</b><h3>Aufmaß vor Ort</h3><p>Untergrund, Feuchte, Höhen und Anschlüsse werden geprüft.</p></article><article><b>03</b><h3>Transparentes Angebot</h3><p>Sie erhalten eine nachvollziehbare Aufstellung der Arbeiten.</p></article><article><b>04</b><h3>Saubere Ausführung</h3><p>Verlegung, Abschluss und gemeinsame Abnahme.</p></article>
+  </div>
+</section>
+
+<section class="faq section" id="faq">
+  <div class="faq-main reveal"><span class="eyebrow">FAQ</span><h2>Weniger fragen.<br>Mehr wissen.</h2><div class="accordion">
+    <details open><summary>Welche Bodenbeläge verlegen Sie?<i>+</i></summary><p>Parkett, Designbelag, Vinyl, PVC, Laminat, Linoleum, Kork und Kautschuk. Entscheidend sind Raum, Nutzung und Untergrund.</p></details>
+    <details><summary>Übernehmen Sie auch die Untergrundvorbereitung?<i>+</i></summary><p>Ja. Dazu gehören je nach Zustand Reparieren, Schleifen, Grundieren, Spachteln und das Herstellen einer ebenen Fläche.</p></details>
+    <details><summary>Muss der alte Boden immer raus?<i>+</i></summary><p>Nicht zwingend. Vor Ort wird geprüft, ob erhalten, aufgearbeitet oder auf dem vorhandenen Aufbau weitergearbeitet werden kann.</p></details>
+    <details><summary>Wie entsteht das Angebot?<i>+</i></summary><p>Nach einer ersten Abstimmung erfolgt das Aufmaß. Anschließend erhalten Sie ein transparentes Angebot mit den besprochenen Leistungen.</p></details>
+  </div></div>
+  <div class="faq-image parallax-media"><img src="./assets/photos/stock/herringbone.webp" alt="Fischgrätparkett"></div>
+</section>
+
+<section class="contact section" id="kontakt">
+  <div class="contact-copy reveal"><span class="eyebrow">Kontakt</span><h2>Ihr Boden.<br>Unser nächster Schritt.</h2><p>Schicken Sie kurz die wichtigsten Informationen und gern direkt Bilder vom Raum oder Untergrund.</p><div class="contact-links"><a href="tel:+491777091220">0177 7091220</a><a href="mailto:info@boden-meiske.de">info@boden-meiske.de</a></div></div>
+  <form class="contact-form" action="#" method="post" enctype="multipart/form-data">
+    <label>Name<input type="text" name="name" placeholder="Ihr Name"></label><label>Telefon / E-Mail<input type="text" name="kontakt" placeholder="Wie erreichen wir Sie?"></label><label>Ort & Fläche<input type="text" name="projekt" placeholder="z. B. Wermelskirchen, 65 m²"></label><label>Nachricht<textarea name="nachricht" rows="4" placeholder="Worum geht es?"></textarea></label><label class="upload">Bilder anhängen<input type="file" name="bilder" accept="image/*" multiple><span>Dateien auswählen</span><small data-upload-label>Noch keine Bilder ausgewählt</small></label><button class="button button-red" type="submit">Anfrage senden <span>↗</span></button>
+  </form>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer-symbol"><img src="./assets/logos/hero-symbol-white-final.png" alt=""></div>
+  <div class="footer-top"><div><span class="eyebrow">Boden Meiske</span><h2>Qualität,<br>die bleibt.</h2></div><a class="button button-white" href="#kontakt">Anfrage senden <span>↗</span></a></div>
+  <div class="footer-grid"><div><h3>Navigation</h3><a href="#leistungen">Leistungen</a><a href="#referenzen">Referenzen</a><a href="#materialien">Materialien</a><a href="#faq">FAQ</a></div><div><h3>Kontakt</h3><a href="tel:+491777091220">0177 7091220</a><a href="mailto:info@boden-meiske.de">info@boden-meiske.de</a></div><div><h3>Rechtliches</h3><a href="./impressum.html">Impressum</a><a href="./datenschutz.html">Datenschutz</a></div></div>
+  <div class="footer-bottom"><span>© 2026 Boden Meiske</span><span>Wermelskirchen · Bergisches Land</span></div>
 </footer>
-<button class="back-to-top" type="button" aria-label="Zurück nach oben" title="Zurück nach oben">↑</button>
-</div>
-
-</x-dc>
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {
-  scrollTo(id) {
-    if (typeof document !== 'undefined') document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  }
-  componentDidMount() {
-    if (typeof IntersectionObserver === 'undefined') return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.2 });
-    document.querySelectorAll('.reveal-tile, .motion-reveal').forEach((el) => io.observe(el));
-    const type = document.getElementById('hero-type');
-    if (type) {
-      const target = type.dataset.text || '';
-      const textNode = type.querySelector('span:first-child');
-      const cursor = type.querySelector('.type-cursor');
-      let i = 0;
-      const tick = () => {
-        if (i <= target.length) {
-          textNode.textContent = target.slice(0, i++);
-          window.setTimeout(tick, i < 10 ? 72 : 54);
-        } else {
-          cursor?.classList.add('done');
-        }
-      };
-      window.setTimeout(tick, 520);
-    }
-    this._io = io;
-  }
-  componentWillUnmount() {
-    this._io?.disconnect();
-  }
-  renderVals() {
-    return {
-      navLinks: [
-        { label: 'Leistungen', onClick: () => this.scrollTo('leistungen') },
-        { label: 'Materialien', onClick: () => this.scrollTo('materialien') },
-        { label: 'Referenzen', onClick: () => this.scrollTo('referenzen') },
-        { label: 'Ablauf', onClick: () => this.scrollTo('ablauf') },
-        { label: 'Über mich', onClick: () => this.scrollTo('ueber-uns') },
-      ],
-      goKontakt: () => this.scrollTo('kontakt'),
-      goReferenzen: () => this.scrollTo('referenzen'),
-      services: [
-        { nr: '01', title: 'Neuverlegung & Gestaltung', desc: 'Parkett, Designbelag, Laminat, Kork und Kautschuk – vollflächig verklebt, schwimmend oder als Fischgrät.', points: ['Aufmaß vor Ort & Höhenausgleich', 'Verklebung für langlebigen Sitz', 'Treppen & Übergänge maßgefertigt'] },
-        { nr: '02', title: 'Sanierung & Aufarbeitung', desc: 'Alten Boden retten statt ersetzen. Estrichreparatur, Schleifen, Kitten, Ölen und Versiegeln.', points: ['Staubarmes Schleifen mit Absaugung', 'Farbangleich & Reparatur Fehlstellen', 'Öl, Mattlack oder Hartwachs-Finish'] },
-      ],
-      materials: [
-        { category: 'Massiv, Mehrschicht, Fischgrät', name: 'Parkett', meta: 'Natürlich • Wertig • Auf Wunsch für Fußbodenheizung', image: './assets/photos/materials/parkett.webp' },
-        { category: 'Planken, Fliesen, Dekore', name: 'Designbelag', meta: 'Strapazierfähig • Vielseitig • Pflegeleicht', image: './assets/photos/materials/designbelag.webp' },
-        { category: 'Elastischer Bodenbelag', name: 'Vinyl', meta: 'Feuchtebeständig • Leise • Angenehm im Alltag', image: './assets/photos/materials/vinyl.webp' },
-        { category: 'Bahnenware & Fliesen', name: 'PVC', meta: 'Robust • Pflegeleicht • Für stark genutzte Räume', image: './assets/photos/materials/pvc.webp' },
-        { category: 'Klick- oder Klebesystem', name: 'Laminat', meta: 'Pflegeleicht • Widerstandsfähig • Große Dekorvielfalt', image: './assets/photos/materials/laminat.webp' },
-        { category: 'Natürlicher Bahnenbelag', name: 'Linoleum', meta: 'Langlebig • Strapazierfähig • Bewährtes Material', image: './assets/photos/materials/linoleum.webp' },
-        { category: 'Naturmaterial', name: 'Kork', meta: 'Warm • Trittschalldämmend • Angenehm fußwarm', image: './assets/photos/materials/kork.webp' },
-        { category: 'Elastischer Objektbelag', name: 'Kautschuk', meta: 'Extrem belastbar • Rutschhemmend • Pflegeleicht', image: './assets/photos/materials/kautschuk.webp' },
-      ],
-      gallery: [
-        { src: './assets/photos/gallery/ref_0017.jpg', num: '01', cap: 'Designbelag in Betonoptik', meta: 'Flächenverlegung • Saubere Anschlüsse' },
-        { src: './assets/photos/gallery/ref_0023.jpg', num: '02', cap: 'Designbelag in warmer Holzoptik', meta: 'Wohnbereich • Durchgängiges Verlegebild' },
-        { src: './assets/photos/gallery/ref_0027.jpg', num: '03', cap: 'Untergrund instand gesetzt', meta: 'Schadhafte Stellen repariert • Verlegung vorbereitet' },
-        { src: './assets/photos/gallery/ref_0031.jpg', num: '04', cap: 'Designbelag im Fischgrätmuster', meta: 'Präzise Ausrichtung • Markantes Verlegebild' },
-        { src: './assets/photos/gallery/ref_0032.jpg', num: '05', cap: 'Fischgrätfläche in Holzoptik', meta: 'Ruhige Übergänge • Sorgfältig verlegt' },
-        { src: './assets/photos/gallery/ref_0034.jpg', num: '06', cap: 'Holzoptikboden im Flurbereich', meta: 'Lange Fläche • Saubere Randanschlüsse' },
-        { src: './assets/photos/gallery/ref_0037.jpg', num: '07', cap: 'Untergrund für die Verlegung vorbereitet', meta: 'Ebene Fläche • Großzügiger Wohnbereich' },
-        { src: './assets/photos/gallery/ref_0040.jpg', num: '08', cap: 'Landhausdiele in heller Holzoptik', meta: 'Offener Wohnraum • Ruhiges Dielenbild' },
-      ],
-      steps: [
-        { n: '01', t: 'Anfrage & Fotos', d: 'Sie schicken Raumgröße, 2–3 Fotos und Wunschmaterial. Ich melde mich innerhalb 24h.' },
-        { n: '02', t: 'Aufmaß vor Ort', d: 'Ich komme vorbei, prüfe Untergrund, Feuchte, Höhen. Im Anschluss erhalten Sie ein nachvollziehbares Angebot für die besprochenen Arbeiten.' },
-        { n: '03', t: 'Verlegung', d: 'Staubarm, termintreu, direkt mit mir als Ansprechpartner.' },
-        { n: '04', t: 'Abnahme & Pflege', d: 'Gemeinsamer Rundgang, Pflegeset und Pflegeanleitung.' },
-      ],
-      handschrift: ['Kein Sub, kein Aufmaß durch Dritte', 'Nachvollziehbares Angebot nach dem Aufmaß', 'Materialmuster bringe ich mit', 'Altbelag-Entsorgung inklusive', 'Pflegeset & Einweisung bei Übergabe'],
-      faqItems: [
-        { question: 'Welche Bodenbeläge verlegen Sie?', answer: 'Ich verlege Parkett, Designbeläge und Vinyl, PVC, Laminat, Linoleum, Kork und Kautschuk. Welcher Belag sinnvoll ist, hängt vom Raum, der Beanspruchung, dem Untergrund, der gewünschten Optik und Ihrem Budget ab – deshalb steht vor der Auswahl immer eine ehrliche Beratung.' },
-        { question: 'Übernehmen Sie auch die Vorbereitung des Untergrunds?', answer: 'Ja. Ein Boden kann nur so gut sein wie der Untergrund darunter. Ich prüfe Estrich und vorhandene Flächen, repariere schadhafte Stellen und übernehme bei Bedarf Schleifen, Grundieren, Spachteln und das Herstellen einer ebenen, tragfähigen Verlegefläche.' },
-        { question: 'Muss der alte Boden immer entfernt werden?', answer: 'Nein, nicht automatisch. Manche Altbeläge können erhalten, aufgearbeitet oder nach fachlicher Prüfung als geeignete Grundlage genutzt werden. Vor Ort beurteile ich Zustand, Aufbau und Haftung und erkläre Ihnen, welche Lösung technisch sinnvoll und wirtschaftlich vernünftig ist.' },
-        { question: 'Beraten Sie auch bei der Auswahl des richtigen Bodenbelags?', answer: 'Ja. Ich erläutere Ihnen die Unterschiede bei Pflege, Haltbarkeit, Raumwirkung, Feuchtebeständigkeit und Fußbodenheizung. Dabei empfehle ich nicht das teuerste Material, sondern den Boden, der langfristig zu Ihrem Raum und Ihrem Alltag passt.' },
-        { question: 'Arbeiten Sie nur im Bergischen Land?', answer: 'Mein Schwerpunkt liegt in Wermelskirchen und im Bergischen Land. Je nach Umfang und Entfernung übernehme ich auch Projekte in den angrenzenden Regionen; am besten klären wir Einsatzort und Projektgröße kurz telefonisch.' },
-        { question: 'Wie läuft die Angebotserstellung ab?', answer: 'Nach einer ersten Abstimmung vereinbaren wir in der Regel einen Termin zum Aufmaß. Dabei prüfe ich Flächen, Übergänge und Untergrund und bespreche die gewünschten Leistungen. Anschließend erhalten Sie ein nachvollziehbares Angebot, in dem die vorgesehenen Arbeiten und Materialien aufgeführt sind.' },
-        { question: 'Wie lange dauert eine Bodenverlegung?', answer: 'Das hängt von Fläche, Belag und Untergrund ab. Eine reine Verlegung kann oft zügig erfolgen; Reparaturen, Spachtelarbeiten, Trocknungszeiten oder aufwendige Verlegemuster benötigen mehr Zeit. Nach dem Aufmaß kann ich den Ablauf realistisch einschätzen und mit Ihnen abstimmen.' },
-      ],
-    };
-  }
-}
-
-</script>
-<script src="./js/site.js"></script><script src="./js/premium.js"></script>
-</body>
-</html>
+<script src="./js/site.js"></script>
+</body></html>
