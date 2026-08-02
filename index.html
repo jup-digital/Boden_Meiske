@@ -10,11 +10,11 @@
 <body>
 <x-dc>
 <!-- @template name="Marketing Homepage" description="Boden Meiske flooring business homepage: hero, leistungen, materialien, referenzen, ablauf, über mich, FAQ, kontakt" -->
-<helmet><script src="./ds-base.js"></script><link rel="stylesheet" href="./css/site.css"></helmet>
+<helmet><script src="./ds-base.js"></script><link rel="stylesheet" href="./css/site.css"><link rel="stylesheet" href="./css/premium.css"></helmet>
 <div style="font-family:var(--font-sans);color:var(--text-primary);background:var(--bg-page)">
 <header class="site-header" id="site-header">
   <a class="site-header__brand" href="#top" aria-label="Boden Meiske – nach oben">
-    <img src="./assets/logos/header-logo-terracotta.png" alt="Boden Meiske – Qualität, die bleibt">
+    <img src="./assets/logos/header-logo-user.png" alt="Boden Meiske – Qualität, die bleibt">
   </a>
   <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menü öffnen">
     <span></span><span></span><span></span>
@@ -36,13 +36,15 @@
 
   <div class="hero-layout">
     <div class="hero-content">
-      <img class="hero-symbol" src="./lothar-meiske---meiske-logo_symbol-wei-1-msbr0vi4-gjd8.png" alt="Boden Meiske Symbol">
       <div class="hero-kicker"><span></span> Bodenhandwerk seit 1998</div>
-      <h1 id="hero-title" class="hero-title">
-        <span id="hero-type" data-text="QUALITÄT," aria-hidden="true"><span></span><span class="type-cursor"></span></span>
-        <span class="hero-title__line">DIE BLEIBT.</span>
-        <span class="sr-only">Qualität, die bleibt.</span>
-      </h1>
+      <div class="hero-heading-row">
+        <h1 id="hero-title" class="hero-title">
+          <span id="hero-type" data-text="QUALITÄT," aria-hidden="true"><span></span><span class="type-cursor"></span></span>
+          <span class="hero-title__line">DIE BLEIBT.</span>
+          <span class="sr-only">Qualität, die bleibt.</span>
+        </h1>
+        <img class="hero-symbol" src="./assets/logos/hero-symbol-user.png" alt="" aria-hidden="true">
+      </div>
       <p class="hero-lead">Böden im Bergischen Land — sorgfältig vorbereitet, präzise verlegt und für viele Jahre gemacht.</p>
       <div class="hero-actions">
         <a class="hero-button hero-button--primary" href="#kontakt">Kostenfreies Aufmaß anfragen <span aria-hidden="true">→</span></a>
@@ -54,11 +56,9 @@
   <a class="hero-scroll" href="#leistungen" aria-label="Zu den Leistungen scrollen">
     <span>Entdecken</span><i aria-hidden="true"></i>
   </a>
-  <div class="hero-meta hero-meta--left">Lothar Meiske · Bodenleger</div>
-  <div class="hero-meta hero-meta--right">Bergisches Land</div>
 </section>
 
-<section id="leistungen" class="brand-ambient brand-ambient--left" style="padding:120px 0 80px">
+<section id="leistungen" class="premium-section premium-services brand-ambient brand-ambient--left" style="padding:120px 0 80px">
 <div style="max-width:1440px;margin:0 auto;padding:0 40px">
 <div style="display:flex;gap:32px;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;margin-bottom:64px">
 <div class="motion-reveal line-draw">
@@ -94,8 +94,9 @@
 </div></div>
 </section>
 
-<section aria-label="Material und Raumwirkung"><div class="editorial-band"><div class="editorial-grid"><figure class="editorial-main motion-reveal"><img loading="lazy" src="./assets/photos/stock/room-light.webp" alt="Heller Wohnraum mit warmem Holzboden"><figcaption class="editorial-caption"><div class="editorial-kicker">Material trifft Raum</div><div class="editorial-title">Ein guter Boden trägt den ganzen Raum.</div></figcaption></figure><figure class="editorial-side motion-reveal" data-delay="2"><img loading="lazy" src="./assets/photos/stock/detail-wood.webp" alt="Detailaufnahme einer natürlichen Holzmaserung"><figcaption class="editorial-caption"><div class="editorial-kicker">Natürliches Material</div><div class="editorial-title editorial-title--small">Oberflächen, die man nicht nur sieht.</div></figcaption></figure></div></div></section>
-<section id="materialien" class="brand-ambient brand-ambient--right" style="padding:100px 0 120px">
+<section class="premium-editorial" aria-label="Material und Raumwirkung"><div class="editorial-band"><div class="editorial-grid"><figure class="editorial-main motion-reveal"><img loading="lazy" src="./assets/photos/stock/room-light.webp" alt="Heller Wohnraum mit warmem Holzboden"><figcaption class="editorial-caption"><div class="editorial-kicker">Material trifft Raum</div><div class="editorial-title">Ein guter Boden trägt den ganzen Raum.</div></figcaption></figure><figure class="editorial-side motion-reveal" data-delay="2"><img loading="lazy" src="./assets/photos/stock/detail-wood.webp" alt="Detailaufnahme einer natürlichen Holzmaserung"><figcaption class="editorial-caption"><div class="editorial-kicker">Natürliches Material</div><div class="editorial-title editorial-title--small">Oberflächen, die man nicht nur sieht.</div></figcaption></figure></div></div></section>
+<div class="marquee-band" aria-hidden="true"><div>BODEN · MATERIAL · HANDWERK · PRÄZISION · BODEN · MATERIAL · HANDWERK · PRÄZISION ·</div></div>
+<section id="materialien" class="premium-section premium-materials brand-ambient brand-ambient--right" style="padding:100px 0 120px">
 <div style="max-width:1440px;margin:0 auto;padding:0 40px">
 <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px">
 <h2 style="font-size:clamp(28px,3vw,40px);font-weight:600;letter-spacing:-0.02em;margin:0">Materialübersicht</h2>
@@ -118,7 +119,7 @@
 </section>
 
 <section class="quote-band"><div class="quote-inner motion-reveal"><div class="quote-mark">„</div><div class="quote-text">Ich arbeite nicht für den schnellen Abschluss, sondern für ein Ergebnis, das auch in vielen Jahren noch überzeugt.</div><div class="quote-meta">Lothar Meiske · Bodenleger seit 1998</div></div></section>
-<section id="referenzen" class="brand-ambient brand-ambient--left" style="padding:100px 0">
+<section id="referenzen" class="premium-section premium-references brand-ambient brand-ambient--left" style="padding:100px 0">
 <div style="max-width:1440px;margin:0 auto;padding:0 40px">
 <div class="motion-reveal line-draw" style="margin-bottom:40px">
 <x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Eyebrow" hint-size="220px,28px">Referenzen • Echte Projekte</x-import>
@@ -129,7 +130,7 @@
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
 <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="8">
 <div class="reveal-tile">
-<figure class="image-zoom" style="margin:0;background:#FAFAFA;box-shadow:0 12px 24px -8px rgba(59,63,66,0.18);border-radius:8px;overflow:hidden;padding:12px">
+<figure class="image-zoom" style="margin:0;background:#FAFAFA;box-shadow:0 12px 24px -8px rgba(59,63,66,0.18);border-radius:28px;overflow:hidden;padding:12px">
 <div style="aspect-ratio:4/3;overflow:hidden;position:relative;background:var(--bg-inverse)">
 <img src="{{ g.src }}" style="width:100%;height:100%;object-fit:cover;display:block">
 <div style="position:absolute;left:12px;top:12px;background:var(--paper);font-size:11px;font-weight:700;letter-spacing:0.12em;padding:6px 10px;text-transform:uppercase">{{ g.num }}</div>
@@ -145,8 +146,8 @@
 </div>
 </section>
 
-<section style="padding:100px 0">
-<div style="max-width:1440px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px">
+<section class="premium-why" style="padding:100px 0">
+<div class="premium-why__grid" style="max-width:1440px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px">
 <div class="motion-reveal line-draw">
 <x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Eyebrow" hint-size="140px,28px">Warum Boden Meiske?</x-import>
 <h2 style="font-size:clamp(28px,3vw,36px);font-weight:600;line-height:1.1;letter-spacing:-0.02em;margin:0">Lieber einmal richtig.</h2>
@@ -184,7 +185,7 @@
   </div>
 </section>
 
-<section id="ueber-uns" style="padding:120px 0">
+<section id="ueber-uns" class="premium-about" style="padding:120px 0">
 <div style="max-width:1440px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px">
 <div class="motion-reveal line-draw">
 <x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Eyebrow" hint-size="140px,28px">Über mich</x-import>
@@ -217,7 +218,7 @@
 </div>
 </section>
 
-<section id="faq" class="brand-ambient brand-ambient--right" style="padding:100px 0">
+<section id="faq" class="premium-section premium-faq brand-ambient brand-ambient--right" style="padding:100px 0">
 <div style="max-width:1440px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px">
 <div class="motion-reveal line-draw">
 <x-import component-from-global-scope="BodenMeiskeDesignSystem_24c0cc.Eyebrow" hint-size="80px,28px">FAQ</x-import>
@@ -227,7 +228,8 @@
 </div>
 </section>
 
-<section id="kontakt" style="border-top:1px solid rgba(59,63,66,0.08);padding:100px 0 0">
+<div class="statement-band"><p class="motion-reveal">Ein Boden ist nicht nur Oberfläche.<br><span>Er ist die Grundlage des Raumes.</span></p></div>
+<section id="kontakt" class="premium-contact" style="border-top:1px solid rgba(59,63,66,0.08);padding:100px 0 0">
 <div style="max-width:1440px;margin:0 auto;padding:0 40px">
 <div class="reveal-tile" style="border:1px solid rgba(59,63,66,0.12);background:#FAFAFA;box-shadow:0 12px 24px -8px rgba(59,63,66,0.18);border-radius:8px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr">
 <div style="padding:48px 40px">
@@ -396,6 +398,6 @@ class Component extends DCLogic {
 }
 
 </script>
-<script src="./js/site.js"></script>
+<script src="./js/site.js"></script><script src="./js/premium.js"></script>
 </body>
 </html>

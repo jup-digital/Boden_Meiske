@@ -36,3 +36,11 @@ Vercel veröffentlicht nach jedem Commit auf dem `main`-Branch automatisch.
 - project photo upload control added to contact area
 - map and private street address removed outside the legal notice
 - oversized low-opacity brand symbols and lightweight scroll motion added to light sections
+
+## Version 15 Premium
+- Editoriales, an Framer-Quora angelehntes Layoutsystem
+- Großformatige Typografie, Marken-Symbole und Laufband
+- Scroll-Reveals, Parallax, Hero-Kamerafahrt und Karteninteraktionen
+- Sticky Prozess-Zusammenfassung und magazinartige Referenz-Galerie
+- Benutzerlogo im Header und weißes Symbol neben der Hero-Headline
+- Privatadresse ausschließlich im Impressum
