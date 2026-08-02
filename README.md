@@ -36,3 +36,15 @@ Vercel veröffentlicht nach jedem Commit auf dem `main`-Branch automatisch.
 - project photo upload control added to contact area
 - map and private street address removed outside the legal notice
 - oversized low-opacity brand symbols and lightweight scroll motion added to light sections
+
+## v20 Detailkorrekturen
+- erste dünne Trennlinie im Footer unter dem CTA entfernt
+- Zitat im oberen Bild-/Zitatbereich dauerhaft sichtbar gemacht
+- Hero-Symbol höher positioniert und leicht verkleinert, damit es beim ersten Laden vollständig sichtbar ist
+
+Version v21 – Editorial Finish
+- Leistungsbezeichnung bleibt „Leistungen“.
+- Referenzen als erweiterbare Projektgalerie mit Hover-Informationen.
+- Materialsektionen mit großen Nummern, Sticky-Text und stärkerer Scroll-Dramaturgie.
+- Hero und Animationen verfeinert.
+- Header und Footer von Impressum/Datenschutz an das Startseiten-Design angepasst.

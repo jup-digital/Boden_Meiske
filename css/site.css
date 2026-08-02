@@ -66,3 +66,56 @@
 .footer-symbol{will-change:transform}
 @media(max-width:900px){.material-copy h2{line-height:1.12}.service-lines article:hover{padding-left:0}.service-lines article:before{display:none}}
 @media(prefers-reduced-motion:reduce){.clip-reveal{clip-path:none}.image-panel:after,.material-media:after,.faq-image:after{display:none}.steps article{opacity:1;transform:none}.hero-copy>*{opacity:1;transform:none}}
+
+/* Detailkorrekturen v20 */
+.footer-top{
+  border-bottom:0;
+  padding-bottom:70px;
+}
+
+/* Zitat im oberen Bildbereich dauerhaft klar sichtbar */
+.intro blockquote,
+.intro blockquote.reveal{
+  position:relative;
+  z-index:3;
+  color:var(--ink);
+  opacity:1;
+  transform:none;
+}
+.intro blockquote p{color:var(--ink)}
+.intro blockquote footer{color:var(--ink);opacity:.72}
+
+/* Hero-Symbol in der ersten Ansicht vollständig sichtbar */
+.hero-object{
+  width:min(52vw,720px);
+  margin-top:-72px;
+}
+
+@media(max-width:900px){
+  .hero-object{
+    top:17%;
+    margin-top:0;
+    width:68vw;
+  }
+}
+
+/* Editorial-Finish v21 */
+.hero:before{content:"";position:absolute;inset:12% 8% auto auto;width:min(52vw,760px);aspect-ratio:1;border:1px solid rgba(22,22,22,.07);border-radius:50%;transform:translate(12%,-18%);pointer-events:none}
+.hero:after{content:"";position:absolute;right:12%;top:18%;width:min(34vw,500px);aspect-ratio:1;border:1px solid rgba(163,78,61,.13);border-radius:50%;pointer-events:none}
+.hero-copy{position:relative}.hero-copy:before{content:"";position:absolute;left:0;top:-34px;width:42px;height:3px;background:var(--red);border-radius:99px;transform-origin:left;animation:heroLine 1.1s .1s cubic-bezier(.16,1,.3,1) both}@keyframes heroLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.section-note{max-width:360px;margin:0 0 4px auto;color:#666;line-height:1.6;font-size:14px}
+.gallery-section .section-head{display:grid;grid-template-columns:1fr minmax(240px,.55fr) auto;align-items:end}
+.project-image{position:relative;overflow:hidden;border-radius:var(--radius);background:#ddd}
+.project-image img{border-radius:0!important}
+.project-overlay{position:absolute;inset:0;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;color:white;background:linear-gradient(180deg,transparent 38%,rgba(10,10,10,.72));opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .55s cubic-bezier(.16,1,.3,1)}
+.project-overlay span{position:absolute;top:24px;right:26px;font-size:11px;letter-spacing:.18em}.project-overlay strong{font-size:clamp(26px,3vw,42px);font-weight:500;letter-spacing:-.035em}.project-overlay small{margin-top:7px;font-size:13px;opacity:.78}
+.project-card:hover .project-overlay{opacity:1;transform:none}.project-card:focus-within .project-overlay{opacity:1;transform:none}
+.material-row{position:relative;isolation:isolate}.material-number{position:absolute;z-index:-1;top:3%;right:-.02em;font-size:clamp(170px,24vw,390px);line-height:.8;font-weight:600;letter-spacing:-.09em;color:rgba(22,22,22,.035);pointer-events:none;transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.material-row-reverse .material-number{right:auto;left:-.04em}.material-row.is-active .material-number{transform:translateY(-18px)}
+.material-copy{position:relative}.material-copy h2{max-width:780px}.material-copy p{max-width:560px}.material-row:nth-child(2) .material-copy h2,.material-row:nth-child(3) .material-copy h2{font-size:clamp(50px,6.4vw,102px)}
+@media(min-width:901px){.material-copy{position:sticky;top:132px;align-self:start;padding-top:9vh}.material-row{align-items:start}.material-media{margin-top:0}.material-row-reverse .material-copy{order:1}.material-row-reverse .material-media{order:2}}
+.service-lines article h3,.material-copy h2,.section-head h2{transition:letter-spacing .45s ease}.service-lines article:hover h3,.material-row:hover .material-copy h2{letter-spacing:-.02em}
+.accordion details[open]{background:rgba(163,78,61,.04);padding-left:16px;padding-right:16px;border-radius:14px}
+@media(max-width:900px){.gallery-section .section-head{display:flex}.section-note{margin:0;max-width:520px}.project-overlay{opacity:1;background:linear-gradient(180deg,transparent 50%,rgba(10,10,10,.68));padding:20px}.project-overlay span{top:18px;right:18px}.material-number{font-size:42vw;top:2%}.hero:before,.hero:after{opacity:.55}}
+@media(max-width:600px){.project-overlay strong{font-size:25px}.project-overlay small{display:none}.hero-copy:before{top:-22px}}
+.gallery-track{cursor:grab}.gallery-track.is-dragging{cursor:grabbing;scroll-snap-type:none}.gallery-track.is-dragging *{user-select:none}

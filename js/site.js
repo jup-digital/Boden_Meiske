@@ -24,9 +24,9 @@ if(gallery){
  document.querySelector('[data-gallery-next]')?.addEventListener('click',()=>gallery.scrollBy({left:step(),behavior:'smooth'}));
  document.querySelector('[data-gallery-prev]')?.addEventListener('click',()=>gallery.scrollBy({left:-step(),behavior:'smooth'}));
  let down=false,startX=0,startLeft=0;
- gallery.addEventListener('pointerdown',e=>{down=true;startX=e.clientX;startLeft=gallery.scrollLeft;gallery.setPointerCapture(e.pointerId)});
+ gallery.addEventListener('pointerdown',e=>{down=true;gallery.classList.add('is-dragging');startX=e.clientX;startLeft=gallery.scrollLeft;gallery.setPointerCapture(e.pointerId)});
  gallery.addEventListener('pointermove',e=>{if(down)gallery.scrollLeft=startLeft-(e.clientX-startX)});
- ['pointerup','pointercancel','pointerleave'].forEach(ev=>gallery.addEventListener(ev,()=>down=false));
+ ['pointerup','pointercancel','pointerleave'].forEach(ev=>gallery.addEventListener(ev,()=>{down=false;gallery.classList.remove('is-dragging')}));
 }
 
 const parallax=[...document.querySelectorAll('.parallax-media')];
@@ -43,6 +43,13 @@ function motion(){
 addEventListener('scroll',()=>{if(!tick&&!reduce){tick=true;requestAnimationFrame(motion)}},{passive:true});motion();
 
 if(!reduce&&hero){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;hero.querySelector('img').style.transform=`rotate(${-4+x*4}deg) translate3d(${x*12}px,${y*10}px,0)`});hero.addEventListener('pointerleave',()=>hero.querySelector('img').style.transform='rotate(-4deg)')}
+
+
+const materialRows=[...document.querySelectorAll('.material-row')];
+if(materialRows.length){
+ const mio=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('is-active',entry.isIntersecting)),{threshold:.42});
+ materialRows.forEach(row=>mio.observe(row));
+}
 
 const upload=document.querySelector('input[type=file]'),label=document.querySelector('[data-upload-label]');
 if(upload&&label)upload.onchange=()=>label.textContent=upload.files.length?upload.files.length+' Bild(er) ausgewählt':'Noch keine Bilder ausgewählt';
