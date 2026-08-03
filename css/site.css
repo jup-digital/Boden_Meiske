@@ -129,3 +129,9 @@
 .back-to-top.visible{opacity:1;visibility:visible;transform:none}
 .back-to-top:hover{transform:translateY(-4px);background:#8f4032}
 @media(max-width:900px){.material-number{right:20px!important;left:auto!important;font-size:34vw!important}.material-row-reverse .material-number{left:20px!important;right:auto!important}.numbered-section:after{right:20px;font-size:34vw}.back-to-top{width:46px;height:46px}}
+
+
+/* v23: Zitatblock entfernt, Bildsektion vollflächig */
+.intro-image-only{display:block;position:relative;z-index:2}
+.intro-image-only .image-panel{width:100%;height:min(68vw,760px)}
+@media(max-width:900px){.intro-image-only .image-panel{height:72vw;min-height:360px}}
