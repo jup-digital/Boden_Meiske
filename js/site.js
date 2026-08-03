@@ -1,8 +1,13 @@
 (function(){
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const header=document.getElementById('topbar');
-const onScroll=()=>header&&header.classList.toggle('scrolled',scrollY>40);
+const backToTop=document.querySelector('.back-to-top');
+const onScroll=()=>{
+ if(header)header.classList.toggle('scrolled',scrollY>40);
+ if(backToTop)backToTop.classList.toggle('visible',scrollY>Math.max(520,innerHeight*.65));
+};
 addEventListener('scroll',onScroll,{passive:true});onScroll();
+if(backToTop)backToTop.addEventListener('click',()=>scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
 
 const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('.nav');
 if(toggle&&nav){toggle.onclick=()=>{const o=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',o)};nav.addEventListener('click',e=>{if(e.target.closest('a'))nav.classList.remove('open')})}
