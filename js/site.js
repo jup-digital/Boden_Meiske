@@ -1,12 +1,19 @@
 (function(){
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const header=document.getElementById('topbar');
-const backToTop=document.querySelector('.back-to-top');
+const backToTop=document.querySelector('.back-to-top'),callFab=document.querySelector('.call-fab');
 const onScroll=()=>{
  if(header)header.classList.toggle('scrolled',scrollY>40);
- if(backToTop)backToTop.classList.toggle('visible',scrollY>Math.max(520,innerHeight*.65));
+ const past=scrollY>Math.max(520,innerHeight*.65);
+ if(backToTop)backToTop.classList.toggle('visible',past);
+ if(callFab)callFab.classList.toggle('visible',past);
 };
 addEventListener('scroll',onScroll,{passive:true});onScroll();
+const footerEl=document.querySelector('.footer');
+if(backToTop&&footerEl)new IntersectionObserver(([e])=>backToTop.classList.toggle('on-footer',e.isIntersecting),{rootMargin:'0px 0px -60px 0px'}).observe(footerEl);
+const submitBtn=document.querySelector('.contact-form [type=submit]');
+if(submitBtn)new IntersectionObserver(([e])=>[backToTop,callFab].forEach(b=>b?.classList.toggle('near-cta',e.isIntersecting))).observe(submitBtn);
+if(callFab&&footerEl)new IntersectionObserver(([e])=>callFab.classList.toggle('on-footer',e.isIntersecting)).observe(footerEl);
 if(backToTop)backToTop.addEventListener('click',()=>scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
 
 const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('.nav');
@@ -58,5 +65,27 @@ if(materialRows.length){
 
 const upload=document.querySelector('input[type=file]'),label=document.querySelector('[data-upload-label]');
 if(upload&&label)upload.onchange=()=>label.textContent=upload.files.length?upload.files.length+' Bild(er) ausgewählt':'Noch keine Bilder ausgewählt';
-document.querySelector('.contact-form')?.addEventListener('submit',e=>e.preventDefault());
+const form=document.querySelector('.contact-form'),status=form?.querySelector('.form-status');
+if(form)form.addEventListener('submit',async e=>{
+ e.preventDefault();
+ if(!form.checkValidity()){form.reportValidity();return}
+ if(form.elements._gotcha.value)return;
+ const d=new FormData(form),endpoint=form.dataset.endpoint;
+ // shortcut: without a form endpoint we fall back to the visitor's mail app (no attachments); set data-endpoint once a form service is booked
+ if(!endpoint){
+  const body=`Name: ${d.get('name')}\nKontakt: ${d.get('kontakt')}\nOrt & Fläche: ${d.get('projekt')}\n\n${d.get('nachricht')}`;
+  location.href=`mailto:info@boden-meiske.de?subject=${encodeURIComponent('Anfrage über boden-meiske.de')}&body=${encodeURIComponent(body)}`;
+  status.textContent=upload?.files.length?'Ihr E-Mail-Programm öffnet sich. Bitte hängen Sie die Bilder dort noch einmal an.':'Ihr E-Mail-Programm öffnet sich mit Ihrer Anfrage.';
+  return;
+ }
+ const btn=form.querySelector('[type=submit]');btn.disabled=true;status.textContent='Wird gesendet …';
+ try{
+  const r=await fetch(endpoint,{method:'POST',body:d,headers:{Accept:'application/json'}});
+  if(!r.ok)throw new Error(r.status);
+  form.reset();if(label)label.textContent='Noch keine Bilder ausgewählt';
+  status.textContent='Danke! Ihre Anfrage ist angekommen. Ich melde mich zeitnah bei Ihnen.';
+ }catch(err){status.textContent='Das hat leider nicht geklappt. Bitte rufen Sie an: 0177 7091220.'}
+ finally{btn.disabled=false}
+});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&nav?.classList.contains('open')){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.focus()}});
 })();
