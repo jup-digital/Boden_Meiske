@@ -111,4 +111,8 @@ und Datenschutz Punkt 6 auf den Dienst umschreiben.
 ## v32 – Kundenwünsche November 2026 (siehe `05_Feedback_Kunde/2026-11_WhatsApp_Aenderungswuensche.md`)
 - Ablauf 01 „Anfrage senden“ statt „Anfrage & Fotos“ (keine Raumgröße, keine Bilder)
 - Formular: nur noch „Ort“ statt „Ort & Fläche“, Bild-Upload entfernt; Kontakttext und Datenschutz angepasst
-- Offen: Intro- und Parkett-Bild aus Kunden-Mail, neue Referenzfotos vom NAS
+
+## v33 – Neue Kundenfotos vom NAS (Nov 2026)
+- Referenzen: komplett ersetzt durch 13 Fotos von Patricks NAS (`assets/photos/gallery/ref_nas01–13.webp`, Quelle `Assets/Bilder/Bilder Kunde/NAS_Patrick_2026-11/`)
+- Intro: Flur mit Bogenfenster; Parkett: heller Fischgrät mit Sessel (`assets/photos/real/`); FAQ-Fischgrät durch bearbeitete Version ersetzt
+- Alte Referenzfotos und ungenutzte Bilder aus dem Repo entfernt (Originale liegen weiter in `Assets/Bilder/`)

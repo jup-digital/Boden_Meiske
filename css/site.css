@@ -262,3 +262,6 @@ html{caret-color:var(--red);accent-color:var(--red)}
 @media(prefers-reduced-motion:reduce){.hero-copy>*{transform:none}.call-fab{transition:none}}
 .faq-image img{object-position:center 80%}
 @media(max-width:600px){.hero .hero-facts{flex-direction:column;align-items:flex-start;gap:4px}.hero-facts span+span:before{display:none}}
+
+/* v33: Parkettfoto, Sessel im Ausschnitt halten */
+.material-row[data-material="04"] .material-media img{object-position:18% center}
