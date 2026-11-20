@@ -63,26 +63,24 @@ if(materialRows.length){
  materialRows.forEach(row=>mio.observe(row));
 }
 
-const upload=document.querySelector('input[type=file]'),label=document.querySelector('[data-upload-label]');
-if(upload&&label)upload.onchange=()=>label.textContent=upload.files.length?upload.files.length+' Bild(er) ausgewählt':'Noch keine Bilder ausgewählt';
 const form=document.querySelector('.contact-form'),status=form?.querySelector('.form-status');
 if(form)form.addEventListener('submit',async e=>{
  e.preventDefault();
  if(!form.checkValidity()){form.reportValidity();return}
  if(form.elements._gotcha.value)return;
  const d=new FormData(form),endpoint=form.dataset.endpoint;
- // shortcut: without a form endpoint we fall back to the visitor's mail app (no attachments); set data-endpoint once a form service is booked
+ // shortcut: without a form endpoint we fall back to the visitor's mail app; set data-endpoint once a form service is booked
  if(!endpoint){
-  const body=`Name: ${d.get('name')}\nKontakt: ${d.get('kontakt')}\nOrt & Fläche: ${d.get('projekt')}\n\n${d.get('nachricht')}`;
+  const body=`Name: ${d.get('name')}\nKontakt: ${d.get('kontakt')}\nOrt: ${d.get('ort')}\n\n${d.get('nachricht')}`;
   location.href=`mailto:info@boden-meiske.de?subject=${encodeURIComponent('Anfrage über boden-meiske.de')}&body=${encodeURIComponent(body)}`;
-  status.textContent=upload?.files.length?'Ihr E-Mail-Programm öffnet sich. Bitte hängen Sie die Bilder dort noch einmal an.':'Ihr E-Mail-Programm öffnet sich mit Ihrer Anfrage.';
+  status.textContent='Ihr E-Mail-Programm öffnet sich mit Ihrer Anfrage.';
   return;
  }
  const btn=form.querySelector('[type=submit]');btn.disabled=true;status.textContent='Wird gesendet …';
  try{
   const r=await fetch(endpoint,{method:'POST',body:d,headers:{Accept:'application/json'}});
   if(!r.ok)throw new Error(r.status);
-  form.reset();if(label)label.textContent='Noch keine Bilder ausgewählt';
+  form.reset();
   status.textContent='Danke! Ihre Anfrage ist angekommen. Ich melde mich zeitnah bei Ihnen.';
  }catch(err){status.textContent='Das hat leider nicht geklappt. Bitte rufen Sie an: 0177 7091220.'}
  finally{btn.disabled=false}

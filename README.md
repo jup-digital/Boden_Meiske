@@ -107,3 +107,8 @@ und Datenschutz Punkt 6 auf den Dienst umschreiben.
 - Kontrast: Footer-Labels, Formular-Platzhalter; sichtbarer Fokusrahmen in Formularfeldern; Textauswahl/Cursor in Markenrot
 - Eine Stimme („ich“): Platzhalter und Formular-Erfolgsmeldung
 - Fix: Breitbild-Regel überschrieb das 4-spaltige Leistungs-Raster
+
+## v32 – Kundenwünsche November 2026 (siehe `05_Feedback_Kunde/2026-11_WhatsApp_Aenderungswuensche.md`)
+- Ablauf 01 „Anfrage senden“ statt „Anfrage & Fotos“ (keine Raumgröße, keine Bilder)
+- Formular: nur noch „Ort“ statt „Ort & Fläche“, Bild-Upload entfernt; Kontakttext und Datenschutz angepasst
+- Offen: Intro- und Parkett-Bild aus Kunden-Mail, neue Referenzfotos vom NAS
