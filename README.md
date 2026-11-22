@@ -202,3 +202,8 @@ Hero bleibt (mit langsamem Zoom aufs Foto, 18 s); darunter Prinzipien nach Frame
 - **Texte:** durchgehend „wir“; Platzhalter-Zusage „1–2 Werktage“ entfernt; Über-uns-Satz aus dem Briefing im Intro ergänzt (abzustimmen).
 - **Aufgeräumt:** 16 ungenutzte Logo-Dateien, `premium.css`, `_ds/`, `ds-base.js`, `support.js`, Inter-Schrift samt Lizenz. Originale liegen in `01_Brand`.
 - Anruf-Knopf erscheint nur noch mobil.
+
+## v101 – Hero wieder schlicht (Branch `hero-v101`)
+- Im Bild nur noch „Qualität, die bleibt.“, darunter Linie und eine Zeile: links die H1 „Bodenleger in Wermelskirchen – vom Untergrund bis zum fertigen Boden“, rechts „Lothar Meiske · seit 1985“.
+- Unterzeile („Von der Estrichreparatur …“) und die Buttons „Projekt besprechen“ / „Leistungen entdecken“ stehen jetzt direkt unter dem Hero-Bild.
+- Hero-Zoom läuft in Schleife: 18 s hinein, 18 s zurück (ease-in-out), bei reduzierter Bewegung aus.
