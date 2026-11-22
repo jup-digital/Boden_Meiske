@@ -143,3 +143,8 @@ und Datenschutz Punkt 6 auf den Dienst umschreiben.
 - Materialien: kompakte Zwei-Spalten-Liste statt fünf Vollbild-Abschnitte, Überschriften jetzt h3; Unterbodenvorbereitung hervorgehoben
 - Kontakt: Block „Lothar Meiske – Ihr Ansprechpartner“
 - Seite ca. 22 % kürzer (Desktop 13.070 → 10.150 px)
+
+## v40 – Finales Logo & Farbpalette (Branch `brand-final`, Nov 2026)
+- Logo: finales Holz-M mit Wortmarke, vektorisiert (potrace). Varianten in `01_Brand/01_Logo/Final_2026-11/svg/` (Symbol, horizontal, horizontal mit Claim, gestapelt, gestapelt „Seit 1985“, Wortmarke, Wortmarke mit Claim – je Shadow/Red/Bone/Weiß), Übersicht `logo-varianten.html`, Bauskripte `trace_parts.py`, `build_variants.py`
+- Website: Header-Logo `assets/logos/logo-horizontal.svg`, Footer-Symbol `symbol-white.svg`, Favicon SVG + PNG, Apple-Touch-Icon, neues OG-Bild
+- Palette: Old Red #AB3620 (Akzent, Buttons, Footer) · Soft Bone #D8DAD8 (Seitengrund) · Shadow #181A18 (Text, Ablauf-Block); Fließtext #4A4C4A (6,2:1 auf Bone)
