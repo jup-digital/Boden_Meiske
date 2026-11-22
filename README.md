@@ -207,3 +207,9 @@ Hero bleibt (mit langsamem Zoom aufs Foto, 18 s); darunter Prinzipien nach Frame
 - Im Bild nur noch „Qualität, die bleibt.“, darunter Linie und eine Zeile: links die H1 „Bodenleger in Wermelskirchen – vom Untergrund bis zum fertigen Boden“, rechts „Lothar Meiske · seit 1985“.
 - Unterzeile („Von der Estrichreparatur …“) und die Buttons „Projekt besprechen“ / „Leistungen entdecken“ stehen jetzt direkt unter dem Hero-Bild.
 - Hero-Zoom läuft in Schleife: 18 s hinein, 18 s zurück (ease-in-out), bei reduzierter Bewegung aus.
+
+## v103 – Kundenpalette Brick · Ivory · Steel (Branch `palette-v103`)
+- Grundfläche Ivory `#EBEDF1`, Karten `#F6F7F9`, Text Steel `#22282F` (12,7:1).
+- Brick `#9D563A` nur für Handlung: Buttons, Header-CTA, Scroll-Fortschritt, Auswahl (Ivory auf Brick 4,7:1).
+- Footer als einzige dunkle Fläche in Steel. Hero-Verlauf und Lightbox in Steel statt Schwarz.
+- Sekundärtext `#565B61` (5,9:1), Labels `#666B71` (4,6:1). Rechtsseiten mit denselben Tokens.
