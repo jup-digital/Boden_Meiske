@@ -164,3 +164,11 @@ Gestaltungsprinzipien des Framer-Templates „Understorey“ übertragen (kein C
 - Sektionen: Hero Foto/Schwarz · Intro Off-White · Referenzen Sand · Leistungen Off-White · Materialien Sand · Ablauf Taupe · FAQ Off-White · Kontakt Orange · Footer Schwarz
 - Vordergrundfarbe per `--fg-rgb` je Fläche umschaltbar (hell/dunkel)
 - Fix: Leistungen-Sektion war seit v36 nicht mehr eigenständig (Anker `#leistungen` fehlte) – wiederhergestellt
+
+## v70 – Motion-System & Header-Wortmarke (Branch `motion-v70`, Nov 2026)
+- Leitmotiv „verlegen“: Headlines steigen Zeile für Zeile aus einer Maske, Bilder öffnen sich per Clip-Path und setzen sich (Scale), Bild-Pillen im Intro ploppen auf, Faktentabelle läuft gestaffelt ein
+- Hero-Sequenz: Foto setzt sich, „Qualität, | die bleibt.“ steigt auf, Linie zeichnet sich, Meta-Zeile erscheint
+- Scroll-Fortschritt (Orange), Header weicht beim Runterscrollen und kommt beim Hochscrollen
+- Galerie-Cursor „Ansehen“ (nur Maus), Leistungs-Band als langsame Endlosschleife (pausiert bei Hover)
+- Reduzierte Bewegung: alles sofort sichtbar, Band statisch
+- Header-Logo: Wortmarke „Boden Meiske“ in Nunito Sans Light (OFL), gesperrt; erzeugt mit `01_Brand/01_Logo/Final_2026-11/build_header_nunito.py`

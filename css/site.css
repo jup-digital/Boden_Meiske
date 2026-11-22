@@ -688,3 +688,91 @@ html{caret-color:var(--orange);accent-color:#000}
 .hero-us,.process,.footer,.topbar:not(.scrolled){--bone:#FAFAFA;--shadow:#000}
 .hero-us .hero-split{color:#FAFAFA}
 .hero-us .hero-meta{color:rgba(250,250,250,.86);border-top-color:rgba(250,250,250,.4)}
+
+/* v70 Motion-System: Inhalte werden „verlegt“ (Maske, Clip-Path), ein Rhythmus für die ganze Seite */
+:root{--ease-out:cubic-bezier(.16,1,.3,1);--ease-io:cubic-bezier(.65,0,.35,1)}
+
+/* Zeilen-Maske für Headlines */
+.split .line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.hero-split .line{display:inline-block}
+.js .split .line-in{display:inline-block;translate:0 105%;transition:translate 1s var(--ease-out) calc(var(--i,0) * 110ms)}
+.split.is-in .line-in,.hero-us.is-in .hero-split .line-in{translate:0 0}
+.js .section-head.reveal{opacity:1;transform:none}
+.js .section-head .section-note,.js .section-head .eyebrow{opacity:0;transition:opacity .8s ease .35s}
+.section-head.visible .section-note,.section-head.visible .eyebrow{opacity:1}
+
+/* Hero-Sequenz: Foto setzt sich, Headline steigt auf, Linie zeichnet sich, Meta erscheint */
+.hero-us .hero-split{animation:none}
+.hero-us .hero-split .line-in{transition-duration:1.2s;transition-delay:calc(.35s + var(--i,0) * 140ms)}
+.hero-us .hero-meta{border-top:0}
+.hero-us .hero-meta:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:rgba(250,250,250,.4);transform-origin:left;scale:0 1;transition:scale 1.2s var(--ease-io) .7s}
+.hero-us.is-in .hero-meta:before{scale:1 1}
+.js .hero-us .hero-meta span{opacity:0;translate:0 8px;transition:opacity .8s ease 1.1s,translate .8s var(--ease-out) 1.1s}
+.hero-us.is-in .hero-meta span{opacity:1;translate:0 0}
+.hero-us .hero-bg{animation:heroSettle 2.2s var(--ease-out) both}
+@keyframes heroSettle{from{opacity:0;scale:1.12}}
+
+/* Bilder: Clip-Path öffnet von unten, Bild setzt sich */
+.image-panel:after{display:none}
+.js .clip{clip-path:inset(16% 0 0 0 round 12px);transition:clip-path 1.2s var(--ease-io)}
+.js .clip img{scale:1.14;transition:scale 1.6s var(--ease-out)}
+.js .clip.is-in{clip-path:inset(0 0 0 0 round 12px)}
+.js .clip.is-in img{scale:1}
+.ref-open:hover img,.ref-open:focus-visible img{scale:1.04}
+.js .clip.is-in:hover img{scale:1.04}
+.mat:hover .mat-media img{scale:1.04}
+.mat .mat-media img{transition:scale 1.2s var(--ease-out)}
+
+/* Intro: Bild-Pillen ploppen nacheinander auf, Fakten laufen ein */
+.js .pill-img{scale:0;transition:scale .7s var(--ease-out)}
+.intro-statement.is-in .pill-img{scale:1}
+.intro-statement.is-in .pill-img:nth-of-type(1){transition-delay:.35s}
+.intro-statement.is-in .pill-img:nth-of-type(2){transition-delay:.5s}
+.intro-statement.is-in .pill-img:nth-of-type(3){transition-delay:.65s}
+.js .facts div{opacity:0;translate:0 14px;transition:opacity .6s ease,translate .8s var(--ease-out)}
+.facts.is-in div{opacity:1;translate:0 0}
+.facts.is-in div:nth-child(2){transition-delay:.08s}.facts.is-in div:nth-child(3){transition-delay:.16s}.facts.is-in div:nth-child(4){transition-delay:.24s}.facts.is-in div:nth-child(5){transition-delay:.32s}
+
+/* Scroll-Fortschritt */
+.scroll-progress{position:fixed;z-index:210;left:0;top:0;height:2px;width:100%;background:var(--orange);transform-origin:left;scale:var(--p,0) 1;pointer-events:none}
+
+/* Header macht beim Runterscrollen Platz */
+.topbar{transition:translate .45s var(--ease-out),background .3s,height .4s,color .3s}
+.topbar.is-hidden{translate:0 -100%}
+
+/* Leistungs-Band */
+.marquee{overflow:hidden;background:#000;color:#FAFAFA;padding:clamp(18px,2.2vw,30px) 0;border-block:1px solid rgba(250,250,250,.08)}
+.marquee-track{display:flex;width:max-content;animation:marquee 48s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{display:inline-flex;align-items:center;gap:clamp(22px,3vw,48px);padding-right:clamp(22px,3vw,48px);font-size:clamp(26px,3.4vw,52px);font-weight:300;letter-spacing:-.02em;white-space:nowrap}
+.marquee span:after{content:"";width:.32em;height:.32em;border-radius:50%;background:var(--orange)}
+@keyframes marquee{to{translate:-50% 0}}
+
+/* Galerie-Cursor */
+.has-cursor .ref-open{cursor:none}
+.ref-cursor{position:fixed;z-index:220;left:0;top:0;pointer-events:none;display:grid;place-items:center;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;background:var(--orange);color:#000;font-size:13px;font-weight:500;letter-spacing:.04em;scale:0;transition:scale .35s var(--ease-out)}
+.ref-cursor.is-on{scale:1}
+
+/* Feinschliff: Buttons, Links, Karten */
+.button span,.mat a span,.ref-more span{transition:translate .35s var(--ease-out)}
+.button:hover span{translate:3px -3px}
+.mat a:hover span{translate:5px 0}
+.ref-more:hover span{translate:0 3px}
+.button{transition:background .25s ease,color .25s ease,scale .2s ease}
+.button:active{scale:.97}
+.service-lines article{transition:background .4s ease}
+.service-lines article:hover{background:rgba(0,0,0,.025)}
+.steps article{transition:background .35s ease,border-color .35s ease}
+.steps article:hover{background:rgba(250,250,250,.1)}
+.accordion summary{transition:opacity .2s}
+.accordion summary:hover{opacity:.7}
+
+@media(prefers-reduced-motion:reduce){
+.js .split .line-in,.js .hero-us .hero-meta span,.js .pill-img,.js .facts div{translate:none;opacity:1;scale:1}
+.hero-us .hero-meta:before{scale:1 1}
+.js .clip{clip-path:none}.js .clip img{scale:1}
+.js .section-head .section-note,.js .section-head .eyebrow{opacity:1}
+.marquee-track{animation:none;flex-wrap:wrap;width:auto;padding:0 var(--pad)}
+.marquee-track span:nth-child(n+9){display:none}
+.topbar.is-hidden{translate:none}
+}
