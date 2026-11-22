@@ -157,3 +157,10 @@ Gestaltungsprinzipien des Framer-Templates „Understorey“ übertragen (kein C
 - Intro: Lothars Satz groß mit eingebetteten Bild-Pillen, Bogenfenster-Foto, Lead, Faktentabelle (nur bestehende Fakten)
 - Vollton-Sektionen: Referenzen Shadow, Ablauf Old Red, Footer Shadow
 - Schichtaufbau-Grafik entfernt
+
+## v61 – Template-Typo, neue Palette hell (Branch `template-farben`, Nov 2026)
+- Typo-Skala nach „Understorey“: Figtree 300, Headlines 63–78 px mit −2 % Laufweite, Labels 12 px Versalien 0,22 em, Creme-/Schwarz-Pillen, Bilder 12 px Radius
+- Palette: Off-White #FAFAFA (Hauptfarbe), Grey Sand #E6E1D8/#D5D1C8, Deep Taupe #675845, Vibrant Orange #FA5C01 (nur als Fläche mit schwarzer Schrift, 6,6:1), Pitch Black #000
+- Sektionen: Hero Foto/Schwarz · Intro Off-White · Referenzen Sand · Leistungen Off-White · Materialien Sand · Ablauf Taupe · FAQ Off-White · Kontakt Orange · Footer Schwarz
+- Vordergrundfarbe per `--fg-rgb` je Fläche umschaltbar (hell/dunkel)
+- Fix: Leistungen-Sektion war seit v36 nicht mehr eigenständig (Anker `#leistungen` fehlte) – wiederhergestellt
