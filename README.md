@@ -116,3 +116,16 @@ und Datenschutz Punkt 6 auf den Dienst umschreiben.
 - Referenzen: komplett ersetzt durch 13 Fotos von Patricks NAS (`assets/photos/gallery/ref_nas01–13.webp`, Quelle `Assets/Bilder/Bilder Kunde/NAS_Patrick_2026-11/`)
 - Intro: Flur mit Bogenfenster; Parkett: heller Fischgrät mit Sessel (`assets/photos/real/`); FAQ-Fischgrät durch bearbeitete Version ersetzt
 - Alte Referenzfotos und ungenutzte Bilder aus dem Repo entfernt (Originale liegen weiter in `Assets/Bilder/`)
+
+## v34 – Motion-Pass & Feinschliff (Branch `redesign-motion`, Impeccable-Kritik Nov 2026)
+- Signatur: „Schichtaufbau“ im Intro (Estrich → Spachtelmasse → Belag baut sich einmal von unten auf)
+- Hero-Symbol: einmaliges Einschwingen statt Endlos-Schweben; Scroll-Parallaxe funktioniert wieder (vorher von CSS-Animation überschrieben), Maus-Neigung entfernt
+- Roter Vorhang nur noch am Intro-Bild; Material- und FAQ-Bilder schwingen ruhig ein
+- Einblendungen 0,6 s statt bis 1,45 s, Staffel nur innerhalb einer Gruppe; ohne JavaScript bleibt alles sichtbar (`html.js`)
+- Hover nur noch auf Klickbarem (Ablauf-Karten, Galerie-Lift, Material-Überschrift entfernt)
+- Navigation in Seitenreihenfolge, aktueller Abschnitt rot unterstrichen
+- Galerie: Zähler „01 / 13“ mit Fortschrittsbalken, Pfeile am Anfang/Ende deaktiviert
+- FAQ klappt weich auf (`::details-content`, ältere Browser springen wie bisher)
+- Material-Links füllen das Nachrichtenfeld vor („Anfrage zu: Parkett“)
+- Formular: Zeile „Ich melde mich in der Regel innerhalb von 1–2 Werktagen.“ (Platzhalter, mit Lothar abstimmen)
+- Datenschutz: Überschrift bricht auf Mobil um (vorher 589 px breit), Kontrast im Hinweiskasten

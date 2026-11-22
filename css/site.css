@@ -265,3 +265,95 @@ html{caret-color:var(--red);accent-color:var(--red)}
 
 /* v33: Parkettfoto, Sessel im Ausschnitt halten */
 .material-row[data-material="04"] .material-media img{object-position:18% center}
+
+/* v34 Motion-Pass: eine Signatur (Schichtaufbau), ruhigere Einblendungen, Feedback statt Deko */
+:root{interpolate-size:allow-keywords;--ease:cubic-bezier(.16,1,.3,1)}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* Ohne JavaScript bleibt alles sichtbar; vorab versteckt wird nur mit .js */
+html:not(.js) .reveal,html:not(.js) .steps article{opacity:1;transform:none}
+html:not(.js) .image-panel:after{display:none}
+
+/* Einblendungen: kürzer, kleiner Weg, Staffel nur innerhalb einer Gruppe (Delay setzt site.js) */
+.reveal{transform:translateY(20px);transition:opacity .6s var(--ease),transform .7s var(--ease)}
+.reveal[data-delay]{transition-delay:0s}
+
+/* Hero-Symbol: einmal einschwingen statt endlos schweben; Parallaxe sitzt am Wrapper */
+.hero-object{animation:none;opacity:calc(var(--symbol-base,1) * var(--symbol-fade,1))}
+.hero-object img{animation:symbolIn 1.1s .15s var(--ease) both}
+@keyframes symbolIn{from{opacity:0;transform:translateY(32px) rotate(-8deg)}to{opacity:1;transform:rotate(-4deg)}}
+.hero-object:hover{filter:drop-shadow(0 26px 30px rgba(0,0,0,.16))}
+.hero-object:hover img{transform:rotate(-4deg)}
+@media(max-width:900px){.hero-object{--symbol-base:.38}}
+
+/* Roter Vorhang nur noch einmal: am Intro-Bild. Übrige Bilder schwingen ruhig ein */
+.image-panel:after{transition-duration:.9s}
+.material-media:after,.faq-image:after{display:none}
+.js .material-media img,.js .faq-image img{scale:1.06;transition:scale 1.1s var(--ease)}
+.js .material-media.media-visible img,.js .faq-image.media-visible img{scale:1}
+
+/* Hover nur noch, wo man klicken kann */
+.gallery-track figure:hover{transform:none}
+.steps.steps-visible article:hover{transform:none;box-shadow:none}
+.material-row:hover .material-copy h2{transform:none}
+
+/* Signatur: Bodenaufbau als Querschnitt, baut sich einmal von unten auf */
+.intro-copy{display:flex;flex-direction:column;gap:clamp(40px,5vw,72px)}
+.layers{margin:0;display:grid;max-width:460px}
+.layer{display:grid;grid-template-columns:minmax(0,1fr) 17ch;align-items:center;gap:22px}
+.layer:before{content:"";grid-column:1;grid-row:1;align-self:stretch}
+.layer p{grid-column:2;grid-row:1;margin:0;display:flex;flex-direction:column;justify-content:center;gap:2px;font-size:14px;line-height:1.35;min-width:13ch}
+.layer b{font-weight:600}
+.layer span{color:#555}
+.layer-belag{min-height:52px}
+.layer-belag:before{background:#b98a5d repeating-linear-gradient(90deg,transparent 0 58px,rgba(70,40,20,.22) 58px 59px);border-radius:10px 10px 0 0;box-shadow:inset 0 -1px rgba(0,0,0,.12)}
+.layer-spachtel{min-height:44px}
+.layer-spachtel:before{background:#dcd7cf}
+.layer-estrich{min-height:84px}
+.layer-estrich:before{background:#9c968e radial-gradient(rgba(255,255,255,.22) 1px,transparent 1.5px) 0 0/9px 9px;border-radius:0 0 10px 10px}
+.js .layer:before{transition:clip-path .8s var(--ease),transform .7s var(--ease),opacity .5s ease}
+.js .layer p{opacity:0;transition:opacity .5s ease}
+.js .layer-estrich:before{clip-path:inset(100% 0 0 0)}
+.js .layer-spachtel:before{clip-path:inset(0 100% 0 0)}
+.js .layer-belag:before{opacity:0;transform:translateY(-18px)}
+.layers.in .layer:before{clip-path:inset(0);opacity:1;transform:none}
+.layers.in .layer p{opacity:1}
+.layers.in .layer-estrich p{transition-delay:.35s}
+.layers.in .layer-spachtel:before{transition-delay:.55s}
+.layers.in .layer-spachtel p{transition-delay:.95s}
+.layers.in .layer-belag:before{transition-delay:1.15s}
+.layers.in .layer-belag p{transition-delay:1.45s}
+@media(max-width:600px){.layer{grid-template-columns:minmax(0,1fr) 16ch;gap:14px}.layer p{font-size:13px}}
+
+/* Navigation: aktueller Abschnitt */
+.nav a:not(.nav-cta){position:relative}
+.nav a:not(.nav-cta):after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav a.is-current{color:var(--red)}
+.nav a.is-current:after{transform:scaleX(1)}
+.nav a.is-current:hover{opacity:1}
+
+/* Galerie: Position und Fortschritt */
+.gallery-progress{display:flex;align-items:center;gap:18px;margin-top:20px;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:#555}
+.gallery-progress i{position:relative;flex:0 1 260px;height:2px;border-radius:2px;background:var(--line);overflow:hidden}
+.gallery-progress b{position:absolute;inset:0;background:var(--red);transform-origin:left;transform:scaleX(var(--p,.08));transition:transform .25s var(--ease)}
+.circle-btn:disabled{opacity:.35;cursor:default;transform:none}
+
+/* FAQ: Antworten klappen weich auf (Browser ohne ::details-content springen wie bisher) */
+@supports selector(::details-content){
+.accordion details::details-content{block-size:0;overflow:hidden;transition:block-size .45s var(--ease),content-visibility .45s allow-discrete}
+.accordion details[open]::details-content{block-size:auto}
+}
+
+/* Formular */
+.form-note{margin:-4px 0 0;font-size:14px;line-height:1.5;color:#555}
+
+@media(min-width:1500px){
+.layers{max-width:calc(460 * var(--u))}.layer p,.gallery-progress,.form-note{font-size:calc(14 * var(--u))}
+.layer-belag{min-height:calc(46 * var(--u))}.layer-spachtel{min-height:calc(40 * var(--u))}.layer-estrich{min-height:calc(78 * var(--u))}
+.gallery-progress i{flex-basis:calc(260 * var(--u))}
+}
+@media(prefers-reduced-motion:reduce){
+.hero-object img{animation:none;transform:rotate(-4deg)}
+.js .layer:before,.js .layer p{clip-path:none;opacity:1;transform:none}
+.js .material-media img,.js .faq-image img{scale:1}
+}
