@@ -485,3 +485,72 @@ html:not(.js) .image-panel:after{display:none}
 .consent input{accent-color:var(--red)}
 .footer .button-white{color:var(--shadow)}
 .footer-symbol img{opacity:1}
+
+/* v50 Understorey-Prinzipien: Vollbild-Hero mit geteilter Headline, leichte Grotesk, nummerierte Pillen, Vollton-Sektionen */
+@font-face{font-family:Figtree;font-style:normal;font-weight:300 900;font-display:swap;src:url('../assets/fonts/figtree-latin.woff2') format('woff2')}
+:root{--radius:10px}
+body{font-family:Figtree,Arial,sans-serif}
+.section h2,.footer h2,.contact h2,.faq h2,.mat h3,.service-lines h3,.steps h3,.section-head h2{font-weight:400;letter-spacing:-.025em}
+.section-head h2{line-height:1}
+
+/* Header: hell über dem Hero, dunkel nach dem Scrollen */
+.brand .logo-dark{display:none}
+.topbar.scrolled .brand .logo-light{display:none}
+.topbar.scrolled .brand .logo-dark{display:block}
+.topbar:not(.scrolled){color:var(--bone)}
+.topbar:not(.scrolled) .nav-cta{border-color:rgba(216,218,216,.6)}
+.topbar:not(.scrolled) .nav-cta:hover{background:var(--bone);color:var(--shadow)}
+.topbar:not(.scrolled) .menu-toggle span{background:var(--bone)}
+.nav.open{color:var(--ink)}
+
+/* Hero */
+.hero.hero-us{display:block;min-height:100svh;padding:0;background:var(--shadow);color:var(--bone);overflow:hidden}
+.hero-us .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% 88%;filter:brightness(.52);animation:heroBg 1.6s var(--ease) both}
+@keyframes heroBg{from{opacity:0;scale:1.06}}
+.hero-us .hero-split{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(84px,8vw,118px);display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin:0;max-width:none;font-size:clamp(46px,6.4vw,108px);font-weight:300;line-height:1;letter-spacing:-.035em;color:var(--bone);animation:heroIn 1s .2s var(--ease) both}
+.hero-us .hero-meta{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(26px,3vw,40px);display:flex;justify-content:space-between;gap:16px;padding-top:18px;border-top:1px solid rgba(216,218,216,.42);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(216,218,216,.88)}
+@media(max-width:900px){.hero-us .hero-bg{filter:brightness(.66);object-position:20% 60%}.hero-us .hero-split{flex-direction:column;gap:0;bottom:120px;font-size:clamp(44px,13vw,72px)}.hero-us .hero-meta{flex-direction:column;gap:6px;font-size:11px}}
+@media(min-width:1500px){.hero-us .hero-split{font-size:6.4vw}.hero-us .hero-meta{font-size:calc(12 * var(--u))}}
+
+/* Nummerierte Pillen statt Kicker */
+main{counter-reset:sec}
+.section-head .eyebrow{counter-increment:sec;display:inline-flex;align-items:center;gap:10px;padding:5px 14px 5px 5px;border:1px solid var(--line);border-radius:999px;font-size:11px;letter-spacing:.14em;color:inherit}
+.section-head .eyebrow:before{content:counter(sec,decimal-leading-zero);display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--bone);font-size:10px;letter-spacing:0}
+
+/* Intro: Lothars Satz mit Bild-Pillen, Foto, Lead und Fakten */
+.intro.section{display:block}
+.intro .intro-statement{margin:0 0 clamp(48px,6vw,96px)}
+.intro .intro-statement p{font-size:clamp(30px,4.3vw,70px);font-weight:300;line-height:1.12;letter-spacing:-.03em;margin:0 0 22px;max-width:22ch}
+.pill-img{display:inline-block;width:1.55em;height:.8em;border-radius:999px;object-fit:cover;vertical-align:baseline;margin:0 .04em;translate:0 .08em}
+.intro .intro-statement footer{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-2);opacity:1}
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,96px);align-items:start}
+.intro-grid .image-panel{height:min(60vw,680px)}
+.intro-lead{font-size:clamp(18px,1.5vw,22px);line-height:1.6;margin:0 0 30px;max-width:30em}
+.facts{margin:44px 0 0;border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:15px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5}
+.facts dt{color:var(--text-2)}.facts dd{margin:0}
+@media(max-width:900px){.intro-grid{grid-template-columns:1fr}.facts div{grid-template-columns:118px 1fr;gap:14px}}
+@media(min-width:1500px){.intro .intro-statement p{font-size:4.3vw}.facts div{font-size:calc(15 * var(--u))}.intro-lead{font-size:1.5vw}}
+
+/* Referenzen als dunkle Galerie */
+#referenzen{background:var(--shadow);color:var(--bone)}
+#referenzen .section-head .eyebrow{border-color:rgba(216,218,216,.3)}
+#referenzen .section-head .eyebrow:before{background:var(--bone);color:var(--shadow)}
+#referenzen .section-note,#referenzen .ref figcaption span{color:rgba(216,218,216,.66)}
+#referenzen .ref-open{background:#232523;border-radius:6px}
+#referenzen .ref-more{border-color:var(--bone);color:var(--bone)}
+#referenzen .ref-more:hover{background:var(--bone);color:var(--shadow)}
+.nav a.is-current{color:inherit}
+
+/* Ablauf in Old Red, vollflächig */
+.process{margin:0;border-radius:0;background:var(--red);color:#fff}
+.process .section-head h2{color:#fff}
+.process .section-head .eyebrow{border-color:rgba(255,255,255,.35);opacity:1;color:#fff}
+.process .section-head .eyebrow:before{background:#fff;color:var(--red)}
+.steps article{background:rgba(0,0,0,.16);color:#fff;border-radius:8px}
+.steps b{color:#fff;opacity:.7}
+.steps p{color:rgba(255,255,255,.82)}
+
+/* Footer in Shadow */
+.footer{background:var(--shadow)}
+.footer-symbol{opacity:.08}

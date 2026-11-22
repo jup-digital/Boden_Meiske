@@ -148,3 +148,12 @@ und Datenschutz Punkt 6 auf den Dienst umschreiben.
 - Logo: finales Holz-M mit Wortmarke, vektorisiert (potrace). Varianten in `01_Brand/01_Logo/Final_2026-11/svg/` (Symbol, horizontal, horizontal mit Claim, gestapelt, gestapelt „Seit 1985“, Wortmarke, Wortmarke mit Claim – je Shadow/Red/Bone/Weiß), Übersicht `logo-varianten.html`, Bauskripte `trace_parts.py`, `build_variants.py`
 - Website: Header-Logo `assets/logos/logo-horizontal.svg`, Footer-Symbol `symbol-white.svg`, Favicon SVG + PNG, Apple-Touch-Icon, neues OG-Bild
 - Palette: Old Red #AB3620 (Akzent, Buttons, Footer) · Soft Bone #D8DAD8 (Seitengrund) · Shadow #181A18 (Text, Ablauf-Block); Fließtext #4A4C4A (6,2:1 auf Bone)
+
+## v50 – Understorey-Prinzipien (Branch `understorey`, Nov 2026)
+Gestaltungsprinzipien des Framer-Templates „Understorey“ übertragen (kein Code, keine Texte/Bilder des Templates; Template ist kostenpflichtig, Single-Use-Lizenz):
+- Hero: Vollbild-Kundenfoto (Fischgrätparkett), Headline „Qualität, | die bleibt.“ links/rechts geteilt, Meta-Zeile mit Haarlinie; Header hell über dem Hero, dunkel nach dem Scrollen
+- Schrift Figtree (OFL, lokal), leichte Schnitte; kleinere Radien
+- Sektionslabels als nummerierte Pillen (CSS-Counter)
+- Intro: Lothars Satz groß mit eingebetteten Bild-Pillen, Bogenfenster-Foto, Lead, Faktentabelle (nur bestehende Fakten)
+- Vollton-Sektionen: Referenzen Shadow, Ablauf Old Red, Footer Shadow
+- Schichtaufbau-Grafik entfernt
