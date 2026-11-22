@@ -189,7 +189,3 @@ Hero bleibt (mit langsamem Zoom aufs Foto, 18 s); darunter Prinzipien nach Frame
 - Motion: Scroll-Fortschritt zurück, Hero-Parallax mit Scrim, wortweises Einlesen des Intro-Zitats; `prefers-reduced-motion` bleibt vollständig respektiert
 - Feinschliff: 44-px-Navigation auf Mobil, keine 600er mehr in sichtbaren UI-Texten, `prefers-reduced-transparency` und `prefers-contrast: more` berücksichtigt
 - Cache: `site.css?v=90`, `site.js?v=86`, `legal.css?v=62`
-
-## v91 – Hero-Wasserzeichen (Logo mittig über dem Foto)
-- Hero: Kundenlogo-Symbol (`assets/logos/symbol-white.svg`) als dezentes Wasserzeichen eingebunden – zentriert über dem Hero-Bild, `soft-light` und 0,14 (0,10 Mobil), Animation wie Hero-Sequenz, `pointer-events:none`
-- `prefers-reduced-transparency` erhöht das Wasserzeichen für mehr Kontrast

@@ -955,11 +955,6 @@ body{font-weight:400}
 .hero-us .hero-bg{translate:0 var(--hero-shift,0);will-change:translate}
 .hero-us .hero-split{font-size:clamp(48px,6vw,92px);line-height:.98;letter-spacing:.005em;translate:0 var(--hero-title-shift,0);will-change:translate;z-index:2}
 .hero-us .hero-meta{letter-spacing:.18em;z-index:2}
-/* v91: Logo-Symbol als ganz dezentes Wasserzeichen, mittig über dem Hero-Foto */
-.hero-us .hero-symbol{position:absolute;left:50%;top:50%;width:min(30vw,380px);z-index:2;pointer-events:none;opacity:.14;mix-blend-mode:soft-light;animation:heroSymbolIn 2.6s var(--ease-out) .5s both}
-@keyframes heroSymbolIn{from{opacity:0}to{opacity:.14}}
-@media(max-width:900px){.hero-us .hero-symbol{top:40%;width:min(58vw,300px);opacity:.1}}
-@media (prefers-reduced-transparency: reduce){.hero-us .hero-symbol{opacity:.3}}
 @media(max-width:900px){.hero-us .hero-split{font-size:clamp(44px,13vw,72px);letter-spacing:.005em}}
 @media(min-width:1500px){.hero-us .hero-split{font-size:6vw}}
 
