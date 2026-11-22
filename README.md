@@ -134,3 +134,12 @@ und Datenschutz Punkt 6 auf den Dienst umschreiben.
 - 3D-Symbol im Hero ersetzt durch Foto „Sonnenlicht auf Holzdielen“ von Franco Debartolo, Unsplash (https://unsplash.com/de/fotos/sonnenlicht-auf-holzdielen-Q9ttGXgFYFk, Unsplash-Lizenz, keine Nennung nötig). Original: `Assets/Bilder/Unsplash/unsplash-Q9ttGXgFYFk-sonnenlicht-holzdielen.jpg`
 - Foto läuft bis zum rechten Rand, öffnet sich beim Laden einmal von unten, leichte Scroll-Parallaxe; auf Mobil unter dem Text
 - WebP in 1100 und 2000 px (`srcset`), Symbol bleibt im Footer
+
+## v36 – Premium-Refinement (Branch `premium-refinement`, Nov 2026)
+- Positionierung: Hero-Headline „Ein guter Boden beginnt darunter.“, Markenclaim „Qualität, die bleibt.“ bleibt als Schlusssatz im Footer; Faktenzeile „Lothar Meiske · über 40 Jahre Erfahrung · Wermelskirchen & Bergisches Land“
+- Title/Meta/OG auf lokale Suche ausgerichtet (Bodenleger Wermelskirchen, Estrich, Untergrund, Beläge); JSON-LD um Leistungen, Beläge und Einsatzgebiet erweitert; Hero-Bild per `preload`
+- Referenzen: kuratiertes Mosaik (große/kleine Bilder im Wechsel) statt Slider, erst 5 Bilder, „Alle 13 Referenzen ansehen“, Lightbox mit Pfeiltasten/Esc
+- Leistungen: Hinweis „Auch einzeln möglich“ (nur Untergrund / eigenes Material verlegen)
+- Materialien: kompakte Zwei-Spalten-Liste statt fünf Vollbild-Abschnitte, Überschriften jetzt h3; Unterbodenvorbereitung hervorgehoben
+- Kontakt: Block „Lothar Meiske – Ihr Ansprechpartner“
+- Seite ca. 22 % kürzer (Desktop 13.070 → 10.150 px)

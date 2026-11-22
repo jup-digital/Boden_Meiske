@@ -30,28 +30,21 @@ document.querySelectorAll('.image-panel,.material-media,.faq-image').forEach(el=
 const steps=document.querySelector('.steps');
 if(steps){const sio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){steps.classList.add('steps-visible');sio.disconnect()}}),{threshold:.22});sio.observe(steps)}
 
-const gallery=document.querySelector('[data-gallery]');
-if(gallery){
- const step=()=>Math.min(gallery.clientWidth*.72,650);
- document.querySelector('[data-gallery-next]')?.addEventListener('click',()=>gallery.scrollBy({left:step(),behavior:'smooth'}));
- document.querySelector('[data-gallery-prev]')?.addEventListener('click',()=>gallery.scrollBy({left:-step(),behavior:'smooth'}));
- let down=false,startX=0,startLeft=0;
- gallery.addEventListener('pointerdown',e=>{down=true;gallery.classList.add('is-dragging');startX=e.clientX;startLeft=gallery.scrollLeft;gallery.setPointerCapture(e.pointerId)});
- gallery.addEventListener('pointermove',e=>{if(down)gallery.scrollLeft=startLeft-(e.clientX-startX)});
- ['pointerup','pointercancel','pointerleave'].forEach(ev=>gallery.addEventListener(ev,()=>{down=false;gallery.classList.remove('is-dragging')}));
- const cards=[...gallery.children],count=document.querySelector('[data-gallery-count]'),bar=document.querySelector('[data-gallery-bar]');
- const prev=document.querySelector('[data-gallery-prev]'),next=document.querySelector('[data-gallery-next]');
- const pad=n=>String(n).padStart(2,'0');
- const progress=()=>{
-  const max=gallery.scrollWidth-gallery.clientWidth,p=max>0?gallery.scrollLeft/max:1;
-  const i=cards.reduce((best,c,k)=>Math.abs(c.offsetLeft-gallery.offsetLeft-gallery.scrollLeft)<Math.abs(cards[best].offsetLeft-gallery.offsetLeft-gallery.scrollLeft)?k:best,0);
-  const shown=p>.995?cards.length:i+1;
-  if(count)count.textContent=pad(shown)+' / '+pad(cards.length);
-  if(bar)bar.style.setProperty('--p',String(Math.max(shown/cards.length,.04)));
-  if(prev)prev.disabled=gallery.scrollLeft<4;
-  if(next)next.disabled=gallery.scrollLeft>max-4;
- };
- gallery.addEventListener('scroll',()=>requestAnimationFrame(progress),{passive:true});addEventListener('resize',progress);progress();
+const refGrid=document.querySelector('[data-refs]'),refMore=document.querySelector('[data-refs-more]');
+if(refGrid&&refMore)refMore.addEventListener('click',()=>{refGrid.classList.add('is-open');refMore.setAttribute('aria-expanded','true');refGrid.querySelector('.ref:nth-child(6) .ref-open')?.focus({preventScroll:true})});
+
+const lb=document.querySelector('[data-lightbox]');
+if(lb&&refGrid&&lb.showModal){
+ const refs=[...refGrid.querySelectorAll('.ref')],img=lb.querySelector('[data-lb-img]');
+ let cur=0,opener=null;
+ const show=i=>{cur=(i+refs.length)%refs.length;const r=refs[cur],src=r.querySelector('img');img.src=src.currentSrc||src.src;img.alt=src.alt;lb.querySelector('[data-lb-title]').textContent=r.querySelector('figcaption b').textContent;lb.querySelector('[data-lb-detail]').textContent=r.querySelector('figcaption span').textContent;lb.querySelector('[data-lb-count]').textContent=String(cur+1).padStart(2,'0')+' / '+refs.length};
+ refGrid.addEventListener('click',e=>{const b=e.target.closest('.ref-open');if(!b)return;opener=b;show(+b.dataset.ref);lb.showModal()});
+ lb.querySelector('[data-lb-prev]').onclick=()=>show(cur-1);
+ lb.querySelector('[data-lb-next]').onclick=()=>show(cur+1);
+ lb.querySelector('[data-lb-close]').onclick=()=>lb.close();
+ lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+ lb.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+ lb.addEventListener('close',()=>opener?.focus());
 }
 
 const parallax=[...document.querySelectorAll('.parallax-media')];
