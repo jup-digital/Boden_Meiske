@@ -55,13 +55,11 @@ if(gallery){
 }
 
 const parallax=[...document.querySelectorAll('.parallax-media')];
-const hero=document.querySelector('.motion-hero');
 const footerSymbol=document.querySelector('.footer-symbol');
 let tick=false;
 function motion(){
  const vh=innerHeight;
  parallax.forEach(el=>{const r=el.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;const p=((r.top+r.height/2)-vh/2)/vh;el.style.setProperty('--py',(p*-46)+'px')});
- if(hero){const y=Math.min(scrollY,innerHeight);hero.style.transform=`translate3d(0,${y*.075}px,0) rotate(${y*.002}deg)`;hero.style.setProperty('--symbol-fade',String(Math.max(.38,1-y/innerHeight*.62)))}
  if(footerSymbol){const r=footerSymbol.getBoundingClientRect();if(r.top<vh&&r.bottom>0){const p=(vh-r.top)/(vh+r.height);footerSymbol.style.transform=`translate3d(0,${(p-.5)*55}px,0) rotate(${-10+p*4}deg)`}}
  tick=false;
 }

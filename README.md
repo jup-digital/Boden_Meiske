@@ -129,3 +129,8 @@ und Datenschutz Punkt 6 auf den Dienst umschreiben.
 - Material-Links füllen das Nachrichtenfeld vor („Anfrage zu: Parkett“)
 - Formular: Zeile „Ich melde mich in der Regel innerhalb von 1–2 Werktagen.“ (Platzhalter, mit Lothar abstimmen)
 - Datenschutz: Überschrift bricht auf Mobil um (vorher 589 px breit), Kontrast im Hinweiskasten
+
+## v35 – Hero mit Foto (Branch `hero-foto`)
+- 3D-Symbol im Hero ersetzt durch Foto „Sonnenlicht auf Holzdielen“ von Franco Debartolo, Unsplash (https://unsplash.com/de/fotos/sonnenlicht-auf-holzdielen-Q9ttGXgFYFk, Unsplash-Lizenz, keine Nennung nötig). Original: `Assets/Bilder/Unsplash/unsplash-Q9ttGXgFYFk-sonnenlicht-holzdielen.jpg`
+- Foto läuft bis zum rechten Rand, öffnet sich beim Laden einmal von unten, leichte Scroll-Parallaxe; auf Mobil unter dem Text
+- WebP in 1100 und 2000 px (`srcset`), Symbol bleibt im Footer
