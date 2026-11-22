@@ -2,10 +2,10 @@
 
 ## Struktur
 - `index.html` – Inhalte und Seitenaufbau
-- `css/site.css` – Layout, Animationen, Footer und responsive Anpassungen
-- `js/site.js` – Footer-Navigation und Zurück-nach-oben-Button
-- `assets/` – Fotos und Logos
-- `_ds/`, `ds-base.js`, `support.js` – Claude-Design-System; nicht löschen
+- `css/site.css` – ein Stylesheet ohne Patch-Schichten: Tokens, Raster, Bausteine, Sektionen, Motion, Medienabfragen
+- `legal.css` – Impressum und Datenschutz (gleiche Tokens)
+- `js/site.js` – Header, Navigation, Einblendungen, Galerie/Lightbox, Formular
+- `assets/` – Fotos, Logo (`logos/lockup.svg`, Quelle `01_Brand/01_Logo/Final_2026-11/build_relaunch_logo.py`), Favicons
 
 ## Kleine Änderungen
 - Texte und Telefonnummer: `index.html`
@@ -189,3 +189,16 @@ Hero bleibt (mit langsamem Zoom aufs Foto, 18 s); darunter Prinzipien nach Frame
 - Motion: Scroll-Fortschritt zurück, Hero-Parallax mit Scrim, wortweises Einlesen des Intro-Zitats; `prefers-reduced-motion` bleibt vollständig respektiert
 - Feinschliff: 44-px-Navigation auf Mobil, keine 600er mehr in sichtbaren UI-Texten, `prefers-reduced-transparency` und `prefers-contrast: more` berücksichtigt
 - Cache: `site.css?v=90`, `site.js?v=86`, `legal.css?v=62`
+
+
+## v100 – Relaunch nach Master-Briefing (Branch `relaunch-briefing`, 22.11.2026)
+- **CSS komplett neu aufgesetzt** (vorher ~1.060 Zeilen mit Patch-Schichten v17–v90). Jetzt: Tokens in `:root`, 12-Spalten-Raster, 4px-Ecken,
+  eine Easing-Kurve `cubic-bezier(.2,.7,.2,1)`, drei Dauern (200 / 450 / 800 ms), `prefers-reduced-motion`, `prefers-contrast`, Druckansicht.
+- **Hero:** Claim „Qualität, die bleibt.“ bleibt groß (jetzt `<p>`), SEO-H1 „Bodenleger in Wermelskirchen – vom Untergrund bis zum fertigen Boden“ dezent darüber,
+  Unterzeile und zwei CTAs („Projekt besprechen“, „Leistungen entdecken“). Langsamer Zoom bleibt; Parallax nur noch mit Maus.
+- **Logo:** Symbol aus „Logo rund“ vektorisiert (potrace) + Wortmarke Nunito Sans Light, Laufweite 0,14 em. Im Header als CSS-Maske (eine Datei, Farbe folgt dem Header).
+  Favicon aus der Version mit schwarzen Flächen.
+- **SEO:** neuer Title und Description, og/twitter-Texte, Schema mit Straße und Gründungsjahr 1985, FAQPage-Schema aus den sichtbaren FAQ.
+- **Texte:** durchgehend „wir“; Platzhalter-Zusage „1–2 Werktage“ entfernt; Über-uns-Satz aus dem Briefing im Intro ergänzt (abzustimmen).
+- **Aufgeräumt:** 16 ungenutzte Logo-Dateien, `premium.css`, `_ds/`, `ds-base.js`, `support.js`, Inter-Schrift samt Lizenz. Originale liegen in `01_Brand`.
+- Anruf-Knopf erscheint nur noch mobil.
