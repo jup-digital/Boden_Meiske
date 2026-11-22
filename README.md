@@ -214,3 +214,4 @@ Hero bleibt (mit langsamem Zoom aufs Foto, 18 s); darunter Prinzipien nach Frame
 - Footer als einzige dunkle Fläche in Steel. Hero-Verlauf und Lightbox in Steel statt Schwarz.
 - Sekundärtext `#565B61` (5,9:1), Labels `#666B71` (4,6:1). Rechtsseiten mit denselben Tokens.
 - v104: Hero-Zoom deutlicher – 100 % bis 116 %, 10 s hin und 10 s zurück.
+- v105: Header- und Footer-Logo mit dem neuen Holzmaserungs-Symbol des Kunden (`Logo-Weiss-Transparent.svg`) + Nunito Sans Light. Quelle: `01_Brand/01_Logo/Final_2026-11/build_header_v105.py`. Das M-Symbol ist aus Header, Footer und Rechtsseiten raus; das Favicon zeigt noch das M.
