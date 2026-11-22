@@ -776,3 +776,89 @@ html{caret-color:var(--orange);accent-color:#000}
 .marquee-track span:nth-child(n+9){display:none}
 .topbar.is-hidden{translate:none}
 }
+
+/* v80 Ruhig unter dem Hero (Prinzipien nach Norfolk): einfarbig Off-White, zentrierte Sektionsköpfe, große Kacheln, 4px-Ecken, leise Motion */
+:root{--radius:4px}
+
+/* Hero: langsamer Zoom auf das Foto */
+.hero-us .hero-bg{animation:heroFade 1.6s ease both,heroZoom 18s cubic-bezier(.25,.1,.25,1) both}
+@keyframes heroFade{from{opacity:0}}
+@keyframes heroZoom{from{scale:1.02}to{scale:1.12}}
+
+/* Eine Fläche, feine Trennlinien */
+.intro.section,#referenzen,.services,.materials.section,.process,.faq,.contact,.footer{background:#FAFAFA;color:#000}
+.process,.footer{--fg-rgb:0,0,0;--cream:#000;--cream-72:rgba(0,0,0,.66);--cream-62:rgba(0,0,0,.58);--hair:rgba(0,0,0,.12);--bone:#000;--bg:#FAFAFA}
+main>section:not(.hero-us),.footer{border-top:1px solid rgba(0,0,0,.08)}
+.section{padding-top:clamp(80px,9vw,140px);padding-bottom:clamp(80px,9vw,140px)}
+
+/* Sektionsköpfe: kleines Label, kräftige Headline, zentriert */
+.section-head,.gallery-section .section-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;max-width:760px;margin:0 auto clamp(48px,5vw,72px)}
+.section-head>div{display:flex;flex-direction:column;align-items:center}
+.section-head .eyebrow,#referenzen .section-head .eyebrow,.process .section-head .eyebrow{display:block;padding:0;border:0;background:none;font-size:12px;letter-spacing:.2em;color:rgba(0,0,0,.55)}
+.section-head .eyebrow:before{display:none}
+.section h2,.section-head h2,.faq h2,.contact h2{font-weight:500;font-size:clamp(34px,3.6vw,54px);line-height:1.1;letter-spacing:-.02em}
+.section-head h2{margin-top:12px}
+.section-head .section-note,.section-note{margin:0 auto;max-width:560px;text-align:center;font-size:17px;color:rgba(0,0,0,.62)}
+.intro .section-head{display:none}
+.intro .intro-statement p{font-weight:400;font-size:clamp(28px,3vw,44px);line-height:1.2;max-width:26ch}
+
+/* Leistungen: drei große Kacheln */
+.service-lines{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;border:0}
+.service-lines article{display:flex;flex-direction:column;gap:0;padding:0;border:1px solid rgba(0,0,0,.1);border-radius:4px;overflow:hidden;background:#fff}
+.service-lines article:hover{background:#fff;padding:0}
+.service-lines .service-thumb{order:-1;width:100%;height:auto;aspect-ratio:4/3;border-radius:0;opacity:1;transform:none;display:block}
+.service-lines article>span{padding:24px 26px 0;font-size:12px;letter-spacing:.2em;color:rgba(0,0,0,.5)}
+.service-lines h3{padding:8px 26px 0;font-size:22px;font-weight:500;letter-spacing:-.01em}
+.service-lines p{padding:10px 26px 28px;max-width:none;font-size:16px;color:rgba(0,0,0,.66)}
+.services-also{max-width:760px;margin:40px auto 0;padding:0;text-align:center}
+@media(max-width:900px){.service-lines{grid-template-columns:1fr}.service-lines article{grid-template-columns:none}.service-lines .service-thumb{display:block}}
+
+/* Materialien: große Bildkacheln, Text darunter */
+.mat-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;border:0;padding-top:0}
+.mat{display:flex;flex-direction:column;gap:0;border:1px solid rgba(0,0,0,.1);border-radius:4px;overflow:hidden;background:#fff}
+.mat .mat-media{aspect-ratio:3/2;border-radius:0}
+.mat-copy{padding:26px 28px 30px}
+.mat h3{font-size:24px;font-weight:500;margin:8px 0 10px}
+.mat-tag{color:rgba(0,0,0,.5);font-size:12px}
+.mat a{border-color:rgba(0,0,0,.25)}
+.mat-wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);background:#fff;padding:0;border:1px solid rgba(0,0,0,.1);align-items:stretch}
+.mat-wide .mat-media{aspect-ratio:16/10;min-height:0;height:auto}
+.mat-wide .mat-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,3vw,48px)}
+.mat-wide h3{font-size:clamp(26px,2.4vw,34px);font-weight:500}
+@media(max-width:900px){.mat-list{grid-template-columns:1fr}.mat-wide{grid-template-columns:1fr}.mat-wide .mat-media{aspect-ratio:3/2}}
+
+/* Ablauf: vier ruhige Kacheln */
+.process .section-head h2{color:#000}
+.steps{gap:24px}
+.steps article,.steps article:hover{background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:4px;color:#000;min-height:0;padding:28px}
+.steps b{color:rgba(0,0,0,.45)}
+.steps h3{font-size:20px;font-weight:500;margin:36px 0 10px}
+.steps p{color:rgba(0,0,0,.66)}
+
+/* Kanten und Buttons */
+.image-panel,.faq-image,.mat-media,.ref-open,#referenzen .ref-open,.hero-media,.lightbox img{border-radius:4px}
+.button,.nav-cta,.ref-more,.call-fab,.back-to-top,.legal-cta,.legal-footer-button{border-radius:4px}
+.button-red,.contact-form .button-red,.contact .button-red{background:#000;color:#FAFAFA}
+.button-red:hover,.contact .button-red:hover{background:#2F2F2F}
+.call-fab{background:#000;color:#FAFAFA}
+.back-to-top,.back-to-top.on-footer{background:#000;color:#FAFAFA}
+.back-to-top:hover{background:#2F2F2F;color:#FAFAFA}
+.ref-more,#referenzen .ref-more{background:none;border:1px solid rgba(0,0,0,.25);color:#000}
+.footer .button-white{background:#000;color:#FAFAFA}
+.footer-grid,.footer-top,.footer-bottom{border-color:rgba(0,0,0,.1)}
+.footer-symbol img{filter:invert(1)}
+.footer-symbol{opacity:.04}
+
+/* Leise Motion */
+.js .clip{clip-path:inset(5% 0 0 0 round 4px);transition:clip-path .9s var(--ease-out)}
+.js .clip.is-in{clip-path:inset(0 0 0 0 round 4px)}
+.js .clip img{scale:1.04;transition:scale 1.2s var(--ease-out)}
+.js .clip.is-in:hover img,.ref-open:hover img,.mat:hover .mat-media img{scale:1.02}
+.js .split .line-in{transition-duration:.8s}
+.js .pill-img{scale:1;opacity:0;transition:opacity .9s ease}
+.intro-statement.is-in .pill-img{opacity:1}
+.js .facts div{translate:0 6px}
+.button:hover span{translate:2px -2px}
+.steps article:hover{background:#fff}
+@media(prefers-reduced-motion:reduce){.hero-us .hero-bg{animation:none}.js .pill-img{opacity:1}}
+.footer-symbol{display:none}

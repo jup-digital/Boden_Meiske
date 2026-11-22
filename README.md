@@ -172,3 +172,11 @@ Gestaltungsprinzipien des Framer-Templates „Understorey“ übertragen (kein C
 - Galerie-Cursor „Ansehen“ (nur Maus), Leistungs-Band als langsame Endlosschleife (pausiert bei Hover)
 - Reduzierte Bewegung: alles sofort sichtbar, Band statisch
 - Header-Logo: Wortmarke „Boden Meiske“ in Nunito Sans Light (OFL), gesperrt; erzeugt mit `01_Brand/01_Logo/Final_2026-11/build_header_nunito.py`
+
+## v80 – Ruhig unter dem Hero (Branch `ruhig-v80`, Nov 2026)
+Hero bleibt (mit langsamem Zoom aufs Foto, 18 s); darunter Prinzipien nach Framer-Template „Norfolk“ (nur Prinzipien, kein Code/Bilder):
+- Eine Fläche: alles Off-White #FAFAFA, Sektionen nur durch feine Linien getrennt (Sand, Taupe, Orange, schwarzer Footer entfallen)
+- Sektionsköpfe zentriert: kleines Label, Headline Figtree 500
+- Große Kacheln: Leistungen 3 Bildkacheln, Materialien 2 Bildkacheln + breite Unterboden-Kachel, Ablauf 4 Rahmen-Kacheln
+- Ecken 4 px statt 12 px, Buttons schwarz (Orange nur noch im Header-Button)
+- Leiser: Leistungs-Band, Scroll-Fortschritt, Galerie-Cursor und Footer-Wasserzeichen entfernt; Masken und Bild-Zoom kürzer und kleiner
