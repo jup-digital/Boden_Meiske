@@ -180,3 +180,12 @@ Hero bleibt (mit langsamem Zoom aufs Foto, 18 s); darunter Prinzipien nach Frame
 - Große Kacheln: Leistungen 3 Bildkacheln, Materialien 2 Bildkacheln + breite Unterboden-Kachel, Ablauf 4 Rahmen-Kacheln
 - Ecken 4 px statt 12 px, Buttons schwarz (Orange nur noch im Header-Button)
 - Leiser: Leistungs-Band, Scroll-Fortschritt, Galerie-Cursor und Footer-Wasserzeichen entfernt; Masken und Bild-Zoom kürzer und kleiner
+
+## v82–v90 – Einheitliche Typografie & finale Politur (Branch `proportionen-v82`, Nov 2026)
+- Header: nur noch die Wortmarke aus dem finalen Kundenlogo, M-Symbol entfernt; Bone- und Dark-Variante als PNG (`assets/logos/wordmark-bone.png`, `wordmark-dark.png`), Hero-Meta auf „Lothar Meiske · Bodenleger · seit 1985“ gekürzt
+- Eine Schrift: Figtree auf Startseite und Rechtsseiten; drei Rollen statt vieler Gewichte – 300 Display, 400 Text, 500 UI/Labels; keine 600/700 mehr
+- Neue Skala: Hero `clamp(46px,6vw,92px)`, Sektion-H2 `clamp(36px,5vw,72px)`, Zitat `clamp(26px,3.4vw,46px)`, H3 `clamp(20px,2vw,28px)`, Body 17 px, Labels 12 px/0,14 em; `text-wrap: balance` für Headlines, `pretty` für Fließtext
+- Rechtsseiten: gleiche Familie und Skala, heller Footer mit schwarzem CTA, Wortmarke `clamp(190px,17vw,260px)`
+- Motion: Scroll-Fortschritt zurück, Hero-Parallax mit Scrim, wortweises Einlesen des Intro-Zitats; `prefers-reduced-motion` bleibt vollständig respektiert
+- Feinschliff: 44-px-Navigation auf Mobil, keine 600er mehr in sichtbaren UI-Texten, `prefers-reduced-transparency` und `prefers-contrast: more` berücksichtigt
+- Cache: `site.css?v=90`, `site.js?v=86`, `legal.css?v=62`

@@ -865,3 +865,199 @@ main>section:not(.hero-us),.footer{border-top:1px solid rgba(0,0,0,.08)}
 
 /* v81 Intro-Zitat: fett, volle Breite, ohne Bild-Pillen und Namen */
 .intro .intro-statement p{max-width:none;font-weight:600;font-size:clamp(30px,3.8vw,58px);line-height:1.15;letter-spacing:-.025em;margin:0}
+
+/* v82 Proportionen: lesbare Grundgröße, klare Stufen (13 · 18 · 24 · 32 · 76), mehr Luft */
+body{font-size:18px}
+p,.accordion p,.service-lines p,.mat p,.steps p,.contact-copy p,.section-note,.services-also,.facts div,.consent,.form-note{font-weight:400}
+.nav{font-size:15px;gap:clamp(22px,2.6vw,40px)}
+.nav-cta{padding:13px 20px}
+.button{font-size:16px;font-weight:500;padding:18px 24px 18px 28px}
+.eyebrow,.section-head .eyebrow,.mat-tag,.contact-form label,.footer-grid h3,.service-lines article>span,.steps b{font-size:13px;font-weight:600;letter-spacing:.16em}
+.section h2,.section-head h2,.faq h2,.contact h2{font-size:clamp(40px,5vw,76px);line-height:1.05;letter-spacing:-.03em}
+.section-head .section-note,.section-note{font-size:20px;line-height:1.55;max-width:640px}
+.section-head,.gallery-section .section-head{max-width:900px;margin-bottom:clamp(56px,6vw,88px)}
+.section{padding-top:clamp(96px,11vw,176px);padding-bottom:clamp(96px,11vw,176px)}
+
+/* Intro */
+.intro-lead{font-size:clamp(20px,1.7vw,24px);font-weight:400;line-height:1.55}
+.facts div{font-size:17px;padding:18px 0;grid-template-columns:180px 1fr}
+
+/* Referenzen */
+.ref figcaption{font-size:16px;padding-top:14px}
+
+/* Leistungen */
+.service-lines{gap:32px}
+.service-lines article>span{padding:30px 32px 0}
+.service-lines h3{font-size:clamp(24px,2vw,30px);padding:10px 32px 0}
+.service-lines p{font-size:18px;line-height:1.6;padding:12px 32px 34px}
+.services-also{font-size:18px;margin-top:48px}
+
+/* Materialien */
+.mat-list{gap:32px}
+.mat-copy{padding:32px 34px 36px}
+.mat h3{font-size:clamp(26px,2.2vw,32px);margin:10px 0 12px}
+.mat p{font-size:18px;line-height:1.6}
+.mat a{font-size:16px}
+.mat-wide h3{font-size:clamp(30px,2.8vw,42px)}
+
+/* Ablauf */
+.steps{gap:32px}
+.steps article,.steps article:hover{padding:34px}
+.steps h3{font-size:clamp(22px,1.8vw,26px);margin:44px 0 12px}
+.steps p{font-size:18px;line-height:1.6}
+
+/* FAQ */
+.accordion summary{font-size:19px;font-weight:500}
+.accordion details{padding:26px 0}
+.accordion p{font-size:18px;line-height:1.7}
+
+/* Kontakt */
+.contact-copy p{font-size:20px;line-height:1.6}
+.contact-links a{font-size:22px}
+.contact-form input,.contact-form textarea{font-size:18px}
+.consent{font-size:15px!important}
+
+/* Footer */
+.footer-grid a{font-size:17px}
+.footer-bottom{font-size:14px}
+
+@media(max-width:600px){
+body{font-size:17px}
+.service-lines p,.mat p,.steps p,.accordion p{font-size:17px}
+.section-head .section-note,.section-note,.contact-copy p{font-size:18px}
+.facts div{grid-template-columns:120px 1fr;font-size:16px}
+.nav{font-size:18px}
+.mat-copy,.steps article{padding:26px 24px 30px}
+.service-lines article>span,.service-lines h3,.service-lines p{padding-left:24px;padding-right:24px}
+}
+@media(min-width:1500px){
+body{font-size:calc(18 * var(--u))}
+.nav{font-size:calc(15 * var(--u))}
+.service-lines p,.mat p,.steps p,.accordion p,.services-also{font-size:calc(18 * var(--u))}
+.section-head .section-note,.section-note,.contact-copy p{font-size:calc(20 * var(--u))}
+.facts div{font-size:calc(17 * var(--u))}
+.ref figcaption{font-size:calc(16 * var(--u))}
+.button{font-size:calc(16 * var(--u))}
+}
+
+/* v83 Korda-Editorial: Wortmarke ohne Symbol, mehr Laufweite, Hero-Parallax,
+   Scroll-Fortschritt, Wort-für-Wort-Zitat und besser lesbare kleine Labels */
+body{font-weight:400}
+
+/* Header: reine Wortmarke, keine Bildmarke */
+.brand img{width:clamp(190px,17vw,260px);height:auto;max-height:none}
+.topbar.scrolled .brand img{width:clamp(165px,15vw,225px)}
+@media(max-width:900px){.brand img,.topbar.scrolled .brand img{width:190px}}
+@media(min-width:1500px){.brand img{width:calc(260 * var(--u))}.topbar.scrolled .brand img{width:calc(225 * var(--u))}}
+
+/* Hero: weicher Verlauf sichert die Lesbarkeit über dem Foto */
+.hero-us:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.06) 26%,rgba(0,0,0,0) 52%,rgba(0,0,0,.52) 100%)}
+.hero-us .hero-bg{translate:0 var(--hero-shift,0);will-change:translate}
+.hero-us .hero-split{font-size:clamp(48px,6vw,92px);line-height:.98;letter-spacing:.005em;translate:0 var(--hero-title-shift,0);will-change:translate;z-index:2}
+.hero-us .hero-meta{letter-spacing:.18em;z-index:2}
+@media(max-width:900px){.hero-us .hero-split{font-size:clamp(44px,13vw,72px);letter-spacing:.005em}}
+@media(min-width:1500px){.hero-us .hero-split{font-size:6vw}}
+
+/* Headlines: mehr Luft zwischen den Buchstaben */
+.section h2,.section-head h2,.faq h2,.contact h2,.footer h2{letter-spacing:-.005em}
+.intro .intro-statement p{letter-spacing:-.005em}
+.mat h3,.mat-wide h3,.service-lines h3,.steps h3{letter-spacing:0}
+.eyebrow,.section-head .eyebrow,.mat-tag,.contact-form label,.footer-grid h3,.service-lines article>span,.steps b{letter-spacing:.18em}
+
+/* Kleine Labels: Kontrast über 4,5:1 statt grau auf grau */
+.section-head .eyebrow,#referenzen .section-head .eyebrow,.process .section-head .eyebrow{color:rgba(0,0,0,.62)}
+.mat-tag,.service-lines article>span{color:rgba(0,0,0,.64)}
+.steps b{color:rgba(0,0,0,.6)}
+
+/* Größere Klickflächen, ohne das Raster zu verändern */
+.nav a:not(.nav-cta){display:inline-flex;align-items:center;min-height:34px;padding:8px 0}
+.footer-grid a{display:inline-flex;align-items:center;min-height:30px}
+.contact-links a{display:inline-flex;align-items:center;min-height:40px}
+@media(max-width:900px){.nav a:not(.nav-cta){min-height:44px;width:100%}}
+@media(max-width:600px){.footer-grid a{min-height:40px}}
+
+/* Scroll-Fortschritt */
+.scroll-progress{height:3px;border-radius:0 2px 2px 0}
+
+/* Intro-Zitat: Wörter lesen sich beim Scrollen ein */
+.js .intro-read .w{opacity:.2;transition:opacity .45s ease}
+.js .intro-read .w.is-read{opacity:1}
+@media(prefers-reduced-motion:reduce){.js .intro-read .w{opacity:1!important}}
+
+/* v84: Zitat als leichte Display-Stimme statt fetter Textblock */
+.intro .intro-statement p{font-weight:300;letter-spacing:0;line-height:1.14}
+
+/* v86 Einheitliches Typografie-System
+   Eine Familie (Figtree), drei Rollen: 300 Display · 400 Text · 500 UI.
+   Eine Skala für Hero, Sektionen, Karten, Fließtext und Labels. */
+:root{
+ --font-sans:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+ --fs-hero:clamp(46px,6vw,92px);
+ --fs-h2:clamp(36px,5vw,72px);
+ --fs-quote:clamp(26px,3.4vw,46px);
+ --fs-h3:clamp(20px,2vw,28px);
+ --fs-h3-lg:clamp(24px,2.4vw,34px);
+ --fs-lead:clamp(18px,1.5vw,21px);
+ --fs-body:17px;
+ --fs-small:14px;
+ --fs-label:12px;
+ --tracking-label:.14em;
+}
+html,body,button,input,textarea,select{font-family:var(--font-sans)}
+body{font-size:var(--fs-body);font-weight:400;line-height:1.65;letter-spacing:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* Rollen und Hierarchie */
+h1,h2,h3,h4,h5,h6{font-family:var(--font-sans);text-wrap:balance}
+p,li,dd,figcaption{text-wrap:pretty}
+b,strong{font-weight:500}
+.hero-us .hero-split{font-size:var(--fs-hero);font-weight:300;line-height:.98;letter-spacing:.005em}
+.section h2,.section-head h2,.faq h2,.contact h2,.footer h2{font-size:var(--fs-h2);font-weight:300;line-height:1.04;letter-spacing:0}
+.intro .intro-statement p{font-size:var(--fs-quote);font-weight:300;line-height:1.16;letter-spacing:0;max-width:30ch}
+.service-lines h3,.mat h3,.steps h3{font-size:var(--fs-h3);font-weight:400;line-height:1.18;letter-spacing:0}
+.mat-wide h3{font-size:var(--fs-h3-lg);font-weight:400;line-height:1.15;letter-spacing:0}
+
+/* Fließtext */
+p{font-size:var(--fs-body);line-height:1.65;letter-spacing:0}
+.intro-lead{font-size:var(--fs-lead);font-weight:400;line-height:1.6;letter-spacing:0}
+.section-note,.service-lines p,.mat p,.steps p,.accordion p,.contact-copy p{font-size:var(--fs-body);font-weight:400;line-height:1.65;letter-spacing:0}
+
+/* UI, Labels, Metadaten */
+.eyebrow,.mat-tag,.hero-meta,.contact-form label,.footer-grid h3,.service-lines article>span,.steps b{font-size:var(--fs-label);font-weight:500;line-height:1.4;letter-spacing:var(--tracking-label)}
+.nav a,.nav-cta{font-size:var(--fs-small);font-weight:500;line-height:1.4;letter-spacing:0}
+.button,.ref-more{font-size:15px;font-weight:500;letter-spacing:0}
+.accordion summary{font-size:17px;font-weight:500;line-height:1.45;letter-spacing:0}
+.ref figcaption b{font-size:14px;font-weight:500;letter-spacing:0}
+.ref figcaption span{font-size:13px;font-weight:400;letter-spacing:.01em}
+.facts dt{font-size:11px;font-weight:500;line-height:1.4;letter-spacing:.12em;text-transform:uppercase}
+.facts dd{font-size:16px;font-weight:400;line-height:1.5;letter-spacing:0}
+.contact-form input,.contact-form textarea{font-size:17px;font-weight:400;line-height:1.5;letter-spacing:0}
+.contact-links a{font-size:19px;font-weight:400;letter-spacing:0}
+.contact-person b{font-weight:500}
+.contact-person span{font-size:14px;line-height:1.5}
+.footer-grid a{font-size:14px;font-weight:400;line-height:1.45;letter-spacing:0}
+.footer-bottom{font-size:12px;font-weight:400;letter-spacing:0}
+.mat a,.mat-copy a{font-size:14px;font-weight:500;letter-spacing:0}
+.upload small{font-size:13px;font-weight:400;letter-spacing:0}
+
+@media(max-width:900px){:root{--fs-hero:clamp(44px,13vw,68px)}}
+
+/* v86b: Labels und Section-Notizen mit höherer Spezifität vereinheitlichen */
+.section-head .eyebrow,.process .section-head .eyebrow{font-size:var(--fs-label);font-weight:500;line-height:1.4;letter-spacing:var(--tracking-label)}
+.hero-us .hero-meta{font-size:var(--fs-label);font-weight:500;line-height:1.4;letter-spacing:var(--tracking-label)}
+.section-head .section-note,.section-note{font-size:var(--fs-body);font-weight:400;line-height:1.6;letter-spacing:0}
+.services-also{font-size:var(--fs-body);font-weight:400;line-height:1.65;letter-spacing:0}
+.services-also b{font-weight:500}
+.scroll-cue{font-weight:500}
+
+/* v89: letzte Spezifitäts-Ausreißer */
+.js .ref-more,.ref-more{font-size:15px;font-weight:500;letter-spacing:0}
+.ref-more span{font-weight:500}
+
+/* v90: letzte UI-Angleichung + systemnahe Darstellung */
+.call-fab{font-weight:500}
+@media (prefers-reduced-transparency: reduce){
+  .topbar.scrolled{background:#FAFAFA;backdrop-filter:none;-webkit-backdrop-filter:none}
+}
+@media (prefers-contrast: more){
+  .section-note,.service-lines p,.mat p,.steps p,.accordion p,.contact-copy p,.form-note,.contact-person span,.footer-bottom{color:#000}
+}

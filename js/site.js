@@ -93,7 +93,7 @@ if(form)form.addEventListener('submit',async e=>{
   const r=await fetch(endpoint,{method:'POST',body:d,headers:{Accept:'application/json'}});
   if(!r.ok)throw new Error(r.status);
   form.reset();
-  status.textContent='Danke! Ihre Anfrage ist angekommen. Ich melde mich zeitnah bei Ihnen.';
+  status.textContent='Danke! Ihre Anfrage ist angekommen. Wir melden uns zeitnah bei Ihnen.';
  }catch(err){status.textContent='Das hat leider nicht geklappt. Bitte rufen Sie an: 0177 7091220.'}
  finally{btn.disabled=false}
 });
@@ -143,4 +143,51 @@ if(grid&&cur&&!reduce&&matchMedia('(pointer: fine)').matches){
  grid.addEventListener('pointermove',e=>{const over=!!e.target.closest('.ref-open');cur.classList.toggle('is-on',over);cur.style.translate=`${e.clientX}px ${e.clientY}px`});
  grid.addEventListener('pointerleave',()=>cur.classList.remove('is-on'));
 }
+})();
+
+// v83: sanfter Hero-Parallax (Bild und Headline laufen versetzt)
+(function(){
+ const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const hero=document.querySelector('.hero-us');if(!hero||rm)return;
+ let tick=false;
+ const update=()=>{
+  const y=Math.min(scrollY,innerHeight*1.1);
+  hero.style.setProperty('--hero-shift',(y*.16).toFixed(2)+'px');
+  hero.style.setProperty('--hero-title-shift',(-y*.035).toFixed(2)+'px');
+  tick=false;
+ };
+ addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(update)}},{passive:true});
+ update();
+})();
+
+// v83: Intro-Zitat liest sich beim Scrollen Wort für Wort ein
+(function(){
+ const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const quote=document.querySelector('.intro-statement'),p=quote?.querySelector('p');
+ if(!quote||!p||rm)return;
+ quote.classList.add('intro-read');
+ const walker=document.createTreeWalker(p,NodeFilter.SHOW_TEXT),nodes=[];
+ while(walker.nextNode())nodes.push(walker.currentNode);
+ nodes.forEach(node=>{
+  const frag=document.createDocumentFragment();
+  node.nodeValue.split(/(\s+)/).forEach(part=>{
+   if(!part)return;
+   if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(part));return}
+   const w=document.createElement('span');w.className='w';w.textContent=part;frag.appendChild(w);
+  });
+  node.parentNode.replaceChild(frag,node);
+ });
+ const words=[...p.querySelectorAll('.w')];if(!words.length)return;
+ let tick=false;
+ const update=()=>{
+  const r=quote.getBoundingClientRect(),start=innerHeight*.9,endCenter=innerHeight*.58;
+  const span=Math.max(1,start-(endCenter-r.height/2));
+  const prog=Math.max(0,Math.min(1,(start-r.top)/span));
+  const n=Math.round(prog*words.length);
+  words.forEach((w,i)=>w.classList.toggle('is-read',i<n));
+  tick=false;
+ };
+ addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(update)}},{passive:true});
+ addEventListener('resize',update);
+ update();
 })();

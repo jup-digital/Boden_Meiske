@@ -31,3 +31,26 @@ body{font-weight:300}
 .legal-footer{background:#000;color:#FAFAFA}
 .legal-footer-button{background:#FA5C01;color:#000}
 .legal-back-to-top{background:#000;color:#FAFAFA}
+
+/* v62: Typografie und Footer an die Startseite angleichen */
+:root{--font-sans:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+html,body{font-family:var(--font-sans)}
+body{font-size:17px;font-weight:400;line-height:1.65;letter-spacing:0;-moz-osx-font-smoothing:grayscale}
+h1,h2,h3,h4,h5,h6{text-wrap:balance}
+p,li{text-wrap:pretty}
+strong,b{font-weight:500}
+.legal-brand img{width:clamp(190px,17vw,260px);max-height:none}
+.legal-header nav,.legal-cta{font-size:14px;font-weight:500;line-height:1.4;letter-spacing:0}
+.legal-main .eyebrow,.legal-footer .eyebrow{font-size:12px;font-weight:500;letter-spacing:.14em}
+.legal-main h1{font-size:clamp(40px,6vw,84px);font-weight:300;line-height:1.02;letter-spacing:0}
+.legal-main h2{font-size:clamp(22px,2.4vw,30px);font-weight:500;line-height:1.25;letter-spacing:0}
+.legal-main h3{font-size:18px;font-weight:500;line-height:1.4;letter-spacing:0}
+.legal-main p,.legal-main li{font-size:16px;font-weight:400;line-height:1.7;letter-spacing:0}
+.legal-footer{background:#FAFAFA;color:#000;border-top:1px solid rgba(0,0,0,.1)}
+.legal-footer-symbol{display:none}
+.legal-footer-top .eyebrow{color:rgba(0,0,0,.6)}
+.legal-footer-top h2{font-size:clamp(36px,5vw,72px);font-weight:300;line-height:1.04;letter-spacing:0}
+.legal-footer-button{background:#000;color:#FAFAFA;font-size:15px;font-weight:500;letter-spacing:0}
+.legal-footer-grid h3{font-size:12px;font-weight:500;line-height:1.4;letter-spacing:.14em;color:rgba(0,0,0,.6)}
+.legal-footer-grid a{font-size:14px;font-weight:400;line-height:1.45;letter-spacing:0}
+.legal-footer-bottom{border-top-color:rgba(0,0,0,.1);font-size:12px;font-weight:400;color:rgba(0,0,0,.6)}
