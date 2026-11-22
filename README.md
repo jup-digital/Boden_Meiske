@@ -213,3 +213,4 @@ Hero bleibt (mit langsamem Zoom aufs Foto, 18 s); darunter Prinzipien nach Frame
 - Brick `#9D563A` nur für Handlung: Buttons, Header-CTA, Scroll-Fortschritt, Auswahl (Ivory auf Brick 4,7:1).
 - Footer als einzige dunkle Fläche in Steel. Hero-Verlauf und Lightbox in Steel statt Schwarz.
 - Sekundärtext `#565B61` (5,9:1), Labels `#666B71` (4,6:1). Rechtsseiten mit denselben Tokens.
+- v104: Hero-Zoom deutlicher – 100 % bis 116 %, 10 s hin und 10 s zurück.
