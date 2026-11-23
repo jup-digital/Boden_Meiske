@@ -224,3 +224,4 @@ Hero bleibt (mit langsamem Zoom aufs Foto, 18 s); darunter Prinzipien nach Frame
 - Ablauf: Coral-Linie füllt sich beim Scrollen, erreichte Schritte werden aktiv (mobil senkrecht).
 - Kicker-Labels über den Überschriften und die Nummern 01–03 bei den Leistungen entfernt (Impeccable Craft-Floor).
 - Reduced Motion: kein Sticky-Ausblenden, keine Wort-/Unschärfe-Animation, keine Bilddrift.
+- v108: Header-/Footer-Logo = Block-M mit Holzmaserung (Kundendatei, vektorisiert) + Nunito-Wortmarke „Boden Meiske“. Quelle: `01_Brand/01_Logo/Final_2026-11/build_header_v108.py`.

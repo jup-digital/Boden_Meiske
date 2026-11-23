@@ -116,8 +116,8 @@ blockquote,figure,dl,dd{margin:0}
 .topbar.scrolled{height:var(--header-h-small);background:rgba(235,237,241,.92);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:var(--ink);border-bottom-color:var(--line)}
 .topbar.is-hidden{translate:0 -100%}
 .brand{display:block;flex:none;padding:6px 0}
-.brand-logo{display:block;width:clamp(230px,19vw,300px);aspect-ratio:4980/642;background:currentColor;-webkit-mask:url('../assets/logos/lockup.svg?v=105') no-repeat left center/contain;mask:url('../assets/logos/lockup.svg?v=105') no-repeat left center/contain}
-.topbar.scrolled .brand-logo{width:clamp(210px,17vw,264px)}
+.brand-logo{display:block;width:clamp(210px,17vw,270px);aspect-ratio:9698/1906;background:currentColor;-webkit-mask:url('../assets/logos/lockup.svg?v=108') no-repeat left center/contain;mask:url('../assets/logos/lockup.svg?v=108') no-repeat left center/contain}
+.topbar.scrolled .brand-logo{width:clamp(190px,15vw,236px)}
 .nav{display:flex;align-items:center;gap:clamp(22px,2.4vw,40px);font-size:var(--fs-ui);font-weight:500}
 .nav a:not(.nav-cta){position:relative;display:inline-flex;align-items:center;min-height:44px}
 .nav a:not(.nav-cta)::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:currentColor;scale:0 1;transform-origin:left;transition:scale var(--dur-fast) var(--ease)}
@@ -287,7 +287,7 @@ blockquote,figure,dl,dd{margin:0}
   /* Steel als einzige dunkle Fläche: Rollen werden umgedreht */
   --ink:var(--ivory);--ink-2:#B7BABF;--ink-3:#A7AAAF;--line:rgba(235,237,241,.16);--light:var(--steel)}
 .footer-top{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;padding-bottom:clamp(48px,5vw,72px)}
-.footer-logo{width:clamp(230px,18vw,290px)}
+.footer-logo{width:clamp(200px,16vw,250px)}
 .footer h2{margin-top:clamp(28px,3vw,44px)}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--gap);padding:48px 0;border-top:1px solid var(--line)}
 .footer-grid>div{display:flex;flex-direction:column;align-items:flex-start}
@@ -367,7 +367,7 @@ blockquote,figure,dl,dd{margin:0}
 @media(max-width:900px){
   :root{--header-h:72px;--header-h-small:64px}
   .menu-toggle{display:block}
-  .brand-logo,.topbar.scrolled .brand-logo{width:210px}
+  .brand-logo,.topbar.scrolled .brand-logo{width:190px}
   .topbar:has(.nav.open){background:var(--bg);color:var(--ink);border-bottom-color:var(--line)}
   .nav{position:fixed;inset:var(--header-h) 0 auto;flex-direction:column;align-items:stretch;gap:0;padding:8px var(--pad) 28px;background:var(--bg);color:var(--ink);border-bottom:1px solid var(--line);font-size:18px;opacity:0;visibility:hidden;translate:0 -8px;transition:opacity var(--dur-fast) var(--ease),translate var(--dur-fast) var(--ease),visibility var(--dur-fast)}
   .topbar.scrolled .nav{inset-block-start:var(--header-h-small)}
