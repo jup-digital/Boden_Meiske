@@ -216,3 +216,12 @@ Hero bleibt (mit langsamem Zoom aufs Foto, 18 s); darunter Prinzipien nach Frame
 - v104: Hero-Zoom deutlicher – 100 % bis 116 %, 10 s hin und 10 s zurück.
 - v105: Header- und Footer-Logo mit dem neuen Holzmaserungs-Symbol des Kunden (`Logo-Weiss-Transparent.svg`) + Nunito Sans Light. Quelle: `01_Brand/01_Logo/Final_2026-11/build_header_v105.py`. Das M-Symbol ist aus Header, Footer und Rechtsseiten raus; das Favicon zeigt noch das M.
 - v106: Akzentfarbe Coral `#E8724A` statt Brick (Buttons, Header-CTA, Scroll-Fortschritt, Auswahl). Schrift auf Coral in Steel (4,9:1), Hover `#EC8360`.
+
+## v107 – Motion „Verlegen“ (Branch `motion-v107`)
+- Hero steht (sticky), die Seite legt sich beim Scrollen wie eine Diele darüber; Hero-Text blendet aus, Bild dunkelt ab.
+- Überschriften erscheinen Wort für Wort aus einer Maske, von unscharf zu scharf. Fließtext blendet mit leichter Unschärfe ein.
+- Bilder treiben beim Scrollen leicht im Rahmen (CSS-Scroll-Timeline; ohne Unterstützung bleiben sie ruhig).
+- Ablauf: Coral-Linie füllt sich beim Scrollen, erreichte Schritte werden aktiv (mobil senkrecht).
+- Kicker-Labels über den Überschriften und die Nummern 01–03 bei den Leistungen entfernt (Impeccable Craft-Floor).
+- Reduced Motion: kein Sticky-Ausblenden, keine Wort-/Unschärfe-Animation, keine Bilddrift.
+- v108: Header-/Footer-Logo = Block-M mit Holzmaserung (Kundendatei, vektorisiert) + Nunito-Wortmarke „Boden Meiske“. Quelle: `01_Brand/01_Logo/Final_2026-11/build_header_v108.py`.
