@@ -1,4 +1,4 @@
-// Boden Meiske – site.js v100 (Relaunch). Ohne Abhängigkeiten; ohne JavaScript bleibt alles sichtbar und bedienbar.
+// Boden Meiske – site.js v107 (Relaunch). Ohne Abhängigkeiten; ohne JavaScript bleibt alles sichtbar und bedienbar.
 (function(){
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -8,6 +8,7 @@ const once=(els,cb,opts)=>{const o=new IntersectionObserver(es=>es.forEach(e=>{i
 /* Header, Fortschritt, schwebende Knöpfe */
 const header=$('#topbar'),nav=$('.nav'),toggle=$('.menu-toggle'),bar=$('.scroll-progress');
 const backToTop=$('.back-to-top'),callFab=$('.call-fab'),footer=$('.footer'),hero=$('.hero');
+const steps=$('.steps'),stepItems=steps?$$('article',steps):[];
 let lastY=scrollY,ticking=false;
 const onScroll=()=>{
  const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;
@@ -16,8 +17,10 @@ const onScroll=()=>{
  bar?.style.setProperty('--p',String(max>0?y/max:0));
  const past=y>Math.max(520,innerHeight*.65);
  backToTop?.classList.toggle('visible',past);callFab?.classList.toggle('visible',past);
- // Hero-Parallax nur mit Maus und ohne reduzierte Bewegung
- if(hero&&!reduce&&finePointer&&y<innerHeight*1.2){hero.style.setProperty('--hero-shift',(y*.16).toFixed(1)+'px');hero.style.setProperty('--hero-title-shift',(-y*.035).toFixed(1)+'px')}
+ // Hero steht (sticky), Inhalt legt sich darüber: Hero-Text blendet aus, Bild dunkelt ab; Bild-Parallaxe nur mit Maus
+ if(hero&&!reduce&&y<innerHeight*1.2){hero.style.setProperty('--hero-p',Math.min(1,y/innerHeight).toFixed(3));if(finePointer)hero.style.setProperty('--hero-shift',(y*.16).toFixed(1)+'px')}
+ // Ablauf: Fortschritt 0..1 über die Schrittreihe, erreichte Schritte aktiv
+ if(steps){const r=steps.getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight*.75-r.top)/(r.height+innerHeight*.25)));steps.style.setProperty('--steps-p',p.toFixed(3));stepItems.forEach((el,i)=>el.classList.toggle('is-on',p>=(i+.5)/stepItems.length))}
  lastY=y;ticking=false;
 };
 addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
@@ -50,9 +53,9 @@ const reveals=$$('.reveal');
 reveals.forEach(el=>{const i=[...el.parentElement.children].filter(c=>c.classList.contains('reveal')).indexOf(el);if(i>0&&!reduce)el.style.transitionDelay=Math.min(i,3)*80+'ms'});
 once(reveals,el=>el.classList.add('visible'),{threshold:.12});
 
-/* Headlines: Zeilen aus der Maske (Zeilen = <br> im Markup) */
+/* Headlines: Wort für Wort aus der Maske, von unscharf zu scharf (Zeilen = <br> im Markup) */
 const heads=$$('.section-head h2,.faq h2,.contact h2,.footer h2');
-heads.forEach(h=>{h.innerHTML=h.innerHTML.split(/<br\s*\/?>/i).map((l,i)=>`<span class="line"><span class="line-in" style="--i:${i}">${l.trim()}</span></span>`).join(' ');h.classList.add('split')});
+heads.forEach(h=>{let i=0;h.innerHTML=h.innerHTML.split(/<br\s*\/?>/i).map(l=>'<span class="line">'+l.trim().split(/\s+/).map(w=>'<span class="w"><span class="w-in" style="--i:'+(i++)+'">'+w+'</span></span>').join(' ')+'</span>').join(' ');h.classList.add('split')});
 once(heads,h=>h.classList.add('is-in'),{threshold:.35});
 
 /* Bilder öffnen sich leise */
