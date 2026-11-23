@@ -225,3 +225,4 @@ Hero bleibt (mit langsamem Zoom aufs Foto, 18 s); darunter Prinzipien nach Frame
 - Kicker-Labels über den Überschriften und die Nummern 01–03 bei den Leistungen entfernt (Impeccable Craft-Floor).
 - Reduced Motion: kein Sticky-Ausblenden, keine Wort-/Unschärfe-Animation, keine Bilddrift.
 - v108: Header-/Footer-Logo = Block-M mit Holzmaserung (Kundendatei, vektorisiert) + Nunito-Wortmarke „Boden Meiske“. Quelle: `01_Brand/01_Logo/Final_2026-11/build_header_v108.py`.
+- v109: Akzentfarbe Terrakotta `#B5532F` statt Coral, Schrift auf Buttons weiß (4,95:1), Hover `#9F4A2B` (6,0:1).
